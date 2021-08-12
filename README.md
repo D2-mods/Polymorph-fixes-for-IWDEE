@@ -1,7 +1,7 @@
 # Polymorph-fixes-for-IWD-EE
-Contact: 
-Github: https://github.com/D2-mods/Polymorph-fixes-for-IWD-EE
-Forum: 
+Contact:  
+GitHub: https://github.com/D2-mods/Polymorph-fixes-for-IWD-EE  
+Forum:  
 Compatibility: IWD:EE v2.5 and v2.6, and possibly older versions (untested)
 
 
