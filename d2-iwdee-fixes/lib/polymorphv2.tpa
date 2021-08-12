@@ -1,0 +1,153 @@
+COPY_EXISTING ~CDPOLYBB.ITM~ ~override~				// patch polymorphs
+  LPF DELETE_EFFECT 
+  INT_VAR 
+  match_opcode = 16
+  END
+
+COPY_EXISTING ~CDPOLYPB.ITM~ ~override~
+  LPF DELETE_EFFECT 
+  INT_VAR 
+  match_opcode = 16
+  END
+  
+COPY_EXISTING ~CDPOLYWW.ITM~ ~override~
+  LPF DELETE_EFFECT 
+  INT_VAR 
+  match_opcode = 16
+  END
+  
+COPY_EXISTING ~CDSHWELE.ITM~ ~override~
+  LPF ALTER_ITEM_HEADER 
+  INT_VAR 
+  header_type = 1
+  dicenumber = 4
+  END
+  
+COPY_EXISTING ~SHTROLL.CRE~ ~override~
+PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
+  READ_LONG 0x238 str
+  READ_LONG 0x239 bonus
+  WRITE_BYTE 0x238 18
+  WRITE_BYTE 0x239 100
+  END
+BUT_ONLY_IF_IT_CHANGES
+
+COPY_EXISTING ~SPIN974.SPL~ ~override~				//patch Psionic Blast
+  LPF ALTER_SPELL_HEADER
+  INT_VAR 
+  projectile = 414
+  END
+  
+  LPF DELETE_EFFECT
+  INT_VAR 
+  match_opcode = 215
+  END
+  
+  LPF ALTER_EFFECT
+  INT_VAR 
+  match_opcode = 45
+  duration = 30
+  END
+  
+  LPF ALTER_EFFECT
+  INT_VAR 
+  match_opcode = 142
+  duration = 30
+  END
+
+  LPF ADD_SPELL_EFFECT
+  INT_VAR STR_VAR
+  opcode = 324
+  insert_point = 0
+  target = 2
+  parameter2 = 55
+  timing = 1
+  resist_dispel = 2
+  resource = SPIN974
+  END
+  
+  LPF ADD_SPELL_EFFECT
+  INT_VAR STR_VAR
+  opcode = 324
+  insert_point = 1
+  target = 2
+  parameter1 = 124
+  parameter2 = 104
+  timing = 1
+  resist_dispel = 2
+  resource = SPIN974
+  END
+  
+  LPF ADD_SPELL_EFFECT
+  INT_VAR STR_VAR
+  opcode = 174
+  target = 2
+  timing = 1
+  resist_dispel = 2
+  savingthrow = 1
+  resource = EFF_M16
+  END
+    
+  LPF ADD_SPELL_EFFECT
+  INT_VAR STR_VAR
+  opcode = 215
+  target = 2
+  parameter2 = 0
+  timing = 1
+  resist_dispel = 2
+  savingthrow = 1
+  resource = PARALH
+  END
+  
+  LPF ADD_SPELL_EFFECT
+  INT_VAR STR_VAR
+  opcode = 215
+  target = 2
+  parameter2 = 1
+  timing = 0
+  resist_dispel = 2
+  duration = 30
+  savingthrow = 1
+  resource = SPMINDAT
+  END
+      
+  LPF ADD_SPELL_EFFECT
+  INT_VAR STR_VAR
+  opcode = 171
+  target = 1
+  timing = 1
+  resist_dispel = 2
+  resource = SPIN974
+  END
+  
+COPY_EXISTING ~SPIN198.SPL~ ~override~				// text edits
+  SAY NAME1 @1
+  SAY UNIDENTIFIED_DESC @2
+  
+COPY_EXISTING ~SPIN157.SPL~ ~override~
+  SAY NAME1 @3
+  SAY UNIDENTIFIED_DESC @4
+  
+COPY_EXISTING ~SPIN156.SPL~ ~override~
+  SAY NAME1 @5
+  SAY UNIDENTIFIED_DESC @6
+  
+COPY_EXISTING ~SPIN154.SPL~ ~override~
+  SAY NAME1 @7
+  SAY UNIDENTIFIED_DESC @8
+  
+COPY_EXISTING ~SPIN153.SPL~ ~override~
+  SAY NAME1 @9
+  SAY UNIDENTIFIED_DESC @10
+  
+COPY_EXISTING ~SPIN152.SPL~ ~override~
+  SAY NAME1 @11
+  SAY UNIDENTIFIED_DESC @12
+  
+COPY_EXISTING ~SPIN974.SPL~ ~override~
+  SAY NAME1 @13
+  SAY UNIDENTIFIED_DESC @14
+  
+COPY_EXISTING ~SPIN155.SPL~ ~override~
+  SAY NAME1 @15
+  SAY UNIDENTIFIED_DESC @16

@@ -1,0 +1,18 @@
+BACKUP ~d2-iwdee-fixes\backup~
+AUTHOR ~Dan_P~
+VERSION ~0.5~
+
+AUTO_TRA ~d2-iwdee-fixes/tra/%s~
+LANGUAGE ~English~ ~english~ ~d2-iwdee-fixes/tra/english/setup.tra~
+	 
+//Installing
+	 
+BEGIN ~Patch Files~
+REQUIRE_PREDICATE GAME_IS ~iwdee~ ~This mod is for IWD:EE boss~
+SUBCOMPONENT ~Polymorph fixes for IWD:EE~
+LABEL ~D2-IWDEE-POLYMORPH~
+INCLUDE ~%MOD_FOLDER%/lib/polymorphv2.tpa~
+
+BEGIN ~Copy Files (use if patching fails)~
+SUBCOMPONENT ~Polymorph fixes for IWD:EE~
+INCLUDE ~%MOD_FOLDER%/lib/polymorph.tpa~

@@ -1,0 +1,128 @@
+@1 = ~Shapechange: Water Elemental~
+@2 = ~Shapechange: Water Elemental
+
+Strength: 18
+Dexterity: 14
+
+Base Armor Class: -2
+Number of Attacks: 1
+Attack Damage: 4d8 (crushing)
+
+Special Abilities:
+– Cold Resistance: -25%
+– Electricity Resistance: -75%
+– Acid Resistance: 75%
+– Slashing Resistance: 75%
+– Crushing Resistance: 75%
+– Piercing Resistance: 75%
+– Missile Resistance: 75%~
+
+@3 = ~Shapechange: Earth Elemental~
+@4 = ~Shapechange: Earth Elemental
+
+Strength: 23
+Dexterity: 5
+
+Base Armor Class: -2
+Number of Attacks: 1
+Attack Damage: 4d8 (crushing)
+
+Special Abilities:
+– Fire Resistance: 25%
+– Cold Resistance: 25%
+– Slashing Resistance: 50%
+– Crushing Resistance: -50%
+– Piercing Resistance: 50%
+– Missile Resistance: 75%~
+
+@5 = ~Shapechange: Fire Elemental~
+@6 = ~Shapechange: Fire Elemental
+
+Strength: 19
+Dexterity: 9
+
+Base Armor Class: 2
+Number of Attacks: 1
+Attack Damage: 1d8 (crushing), +1d4 (fire)
+
+Special Abilities:
+– Fire Resistance: 100%
+– Cold Resistance: -50%
+– Electricity Resistance: 15%
+– Acid Resistance: 15%
+– Slashing Resistance: 15%
+– Crushing Resistance: 15%
+– Piercing Resistance: 15%
+– Missile Resistance: 15%~
+
+@7 = ~Shapechange: Giant Troll~
+@8 = ~Shapechange: Giant Troll
+
+Strength: 18/00
+Dexterity: 20
+
+Base Armor Class: 4
+Number of Attacks: 3
+Attack Damage: 2d6 (piercing)
+
+Special Abilities:
+– Immunity to stun, sleep, hold, paralysis
+– Regenerates 1 Hit Point per second~
+
+@9 = ~Shapechange: Iron Golem~
+@10 = ~Shapechange: Iron Golem
+
+Strength: 24
+Dexterity: 9
+
+Base Armor Class: 3
+Number of Attacks: 1
+Attack Damage: 4d10 (crushing)
+
+Special Abilities:
+– Fire Resistance: 125%
+– Cold Resistance: 100%
+– Electricity Resistance: 100%
+– Acid Resistance: 100%
+– Magic Resistance: 100%
+– Slashing Resistance: 20%
+– Crushing Resistance: 20%
+– Piercing Resistance: 20%
+– Missile Resistance: 20%
+– Immunity to backstab, poison, disease, Cloudkill~
+
+@11 = ~Shapechange: Mind Flayer~
+@12 = ~Shapechange: Mind Flayer
+
+Strength: 10
+Dexterity: 10
+
+Base Armor Class: 5
+Number of Attacks: 4
+Attack Damage: 1d2 (crushing)
+
+Special Abilities:
+– Each hit drains 5 Intelligence from target (no save)
+– May use Psionic Blast ability: Stuns for 5 rounds (Save vs. Spell to negate)~
+
+@13 = ~Psionic Blast~
+@14 = ~Psionic Blast
+A mind flayer's preferred method of attack is the psionic blast, a blast of mental energy that will stun an opponent for five rounds unless a save vs. Spell is made.~
+
+@15 = ~Shapechange: Greater Wolfwere~
+@16 = ~Shapechange: Greater Wolfwere
+
+Strength: 19
+Dexterity: 19
+
+Base Armor Class: 2
+Number of Attacks: 3
+Attack Damage: 1d12 (slashing)
+
+Special Abilities:
+– Fire Resistance: 50%
+– Cold Resistance: 50%
+– Electricity Resistance: 50%
+– Acid Resistance: 50%
+– Immune to weapons of +1 enchantment or less
+– Regenerates 8 Hit Points per second~
