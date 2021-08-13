@@ -1,3 +1,5 @@
+COPY ~%MOD_FOLDER%/data/#EFF_M15.WAV~ ~override~			// copy WAV to override (taken from v2.6)
+
 COPY_EXISTING ~CDPOLYBB.ITM~ ~override~				// patch polymorphs
   LPF DELETE_EFFECT 
   INT_VAR 
@@ -40,7 +42,17 @@ COPY_EXISTING ~SPIN974.SPL~ ~override~				//patch Psionic Blast
   
   LPF DELETE_EFFECT
   INT_VAR 
+  match_opcode = 324
+  END
+  
+  LPF DELETE_EFFECT
+  INT_VAR 
   match_opcode = 215
+  END
+  
+  LPF DELETE_EFFECT
+  INT_VAR 
+  match_opcode = 174
   END
   
   LPF ALTER_EFFECT
@@ -85,7 +97,7 @@ COPY_EXISTING ~SPIN974.SPL~ ~override~				//patch Psionic Blast
   timing = 1
   resist_dispel = 2
   savingthrow = 1
-  resource = EFF_M16
+  resource = ~#EFF_M15~
   END
     
   LPF ADD_SPELL_EFFECT

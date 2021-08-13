@@ -1,8 +1,7 @@
 Polymorph fixes for IWD:EE
-Contact: 
 GitHub: https://github.com/D2-mods/Polymorph-fixes-for-IWD-EE 
 Forum: 
-Compatibility: IWD:EE v2.5 and v2.6, and possibly older versions (untested)
+Game version: IWD:EE v2.5 and v2.6, and possibly older versions (untested)
 
 
 WHAT THIS MOD DOES:
@@ -12,7 +11,7 @@ Fixes stats of some polymorphs and edits descriptions of Shapechange forms to al
 
 INSTALL INFO:
 
-Copy zip contents to game directory and run setup-d2-iwdee-fixes.exe. You have the option to patch or copy files to the override. This mod should be installed before mods that make changes to polymorph stats. The updated text assumes that you are using vanilla polymorph forms.
+Copy zip contents to game directory and run setup-d2-iwdee-fixes.exe. You have the option to patch or copy files to the override. To uninstall, just run the setup again. By its nature, this mod will conflict with any mod that makes changes to stats of Shapechange forms.
 
 
 FIXES/TWEAKS:
@@ -37,13 +36,13 @@ Psionic Blast
 
 CREDITS:
 
-Author: Dan_P
+Coding, Testing: Dan_P
 
 Tools and Resources used:
 - WeiDU v247 https://github.com/WeiDUorg/weidu
 - NearInfinity v2.2-20210501 https://github.com/Argent77/NearInfinity
 - Notepad++ https://notepad-plus-plus.org/
-- GitHub https://github.com/
+- Git Bash https://git-scm.com/downloads
 - Infinity Auto Packager https://github.com/InfinityTools/InfinityAutoPackager
 - IESDP https://gibberlings3.github.io/iesdp/index.htm
 
@@ -52,5 +51,5 @@ Thanks to the devs at Black Isle and Beamdog for their work on IWD and IWD:EE. I
 
 VERSION HISTORY:
 
-v0.5
--pre-release, need to fill out info and links
+v1.0
+-initial release
