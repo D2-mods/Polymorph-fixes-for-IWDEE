@@ -1,6 +1,6 @@
-# Polymorph-fixes-for-IWD:EE
-GitHub: https://github.com/D2-mods/Polymorph-fixes-for-IWD-EE  
-Forum: https://forums.beamdog.com/discussion/82676/polymorph-fixes-for-iwd-ee-weidu-practice
+# Polymorph fixes for IWD:EE
+GitHub: https://github.com/D2-mods/Polymorph-fixes-for-IWDEE  
+Forum: https://forums.beamdog.com/discussion/82676/polymorph-fixes-for-iwd-ee-weidu-practice  
 Game version: IWD:EE v2.5 and v2.6, and possibly older versions (untested)
 
 

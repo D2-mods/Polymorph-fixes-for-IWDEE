@@ -1,4 +1,4 @@
-COPY ~%MOD_FOLDER%/data/#EFF_M15.WAV~ ~override~			// copy WAV to override (taken from v2.6)
+COPY ~%MOD_FOLDER%/data/#EFF_M15.WAV~ ~override~	// copy WAV to override (taken from v2.6)
 
 COPY_EXISTING ~CDPOLYBB.ITM~ ~override~				// patch polymorphs
   LPF DELETE_EFFECT 
@@ -34,7 +34,7 @@ PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
   END
 BUT_ONLY_IF_IT_CHANGES
 
-COPY_EXISTING ~SPIN974.SPL~ ~override~				//patch Psionic Blast
+COPY_EXISTING ~SPIN974.SPL~ ~override~				// patch Psionic Blast
   LPF ALTER_SPELL_HEADER
   INT_VAR 
   projectile = 414
