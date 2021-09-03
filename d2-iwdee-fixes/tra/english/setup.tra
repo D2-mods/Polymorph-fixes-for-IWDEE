@@ -1,5 +1,13 @@
-@1 = ~Shapechange: Water Elemental~
-@2 = ~Shapechange: Water Elemental
+//Setup
+@1 = ~Patch Files~
+@2 = ~Copy Files (use if patching fails)~
+@3 = ~This mod is for IWD:EE boss~
+@4 = ~Polymorph fixes for IWD:EE~
+
+
+//Descriptions
+@100 = ~Shapechange: Water Elemental~
+@200 = ~Shapechange: Water Elemental
 
 Strength: 18
 Dexterity: 14
@@ -17,8 +25,8 @@ Special Abilities:
 – Piercing Resistance: 75%
 – Missile Resistance: 75%~
 
-@3 = ~Shapechange: Earth Elemental~
-@4 = ~Shapechange: Earth Elemental
+@101 = ~Shapechange: Earth Elemental~
+@201 = ~Shapechange: Earth Elemental
 
 Strength: 23
 Dexterity: 5
@@ -35,8 +43,8 @@ Special Abilities:
 – Piercing Resistance: 50%
 – Missile Resistance: 75%~
 
-@5 = ~Shapechange: Fire Elemental~
-@6 = ~Shapechange: Fire Elemental
+@102 = ~Shapechange: Fire Elemental~
+@202 = ~Shapechange: Fire Elemental
 
 Strength: 19
 Dexterity: 9
@@ -55,8 +63,8 @@ Special Abilities:
 – Piercing Resistance: 15%
 – Missile Resistance: 15%~
 
-@7 = ~Shapechange: Giant Troll~
-@8 = ~Shapechange: Giant Troll
+@103 = ~Shapechange: Giant Troll~
+@203 = ~Shapechange: Giant Troll
 
 Strength: 18/00
 Dexterity: 20
@@ -69,8 +77,8 @@ Special Abilities:
 – Immunity to stun, sleep, hold, paralysis
 – Regenerates 1 Hit Point per second~
 
-@9 = ~Shapechange: Iron Golem~
-@10 = ~Shapechange: Iron Golem
+@104 = ~Shapechange: Iron Golem~
+@204 = ~Shapechange: Iron Golem
 
 Strength: 24
 Dexterity: 9
@@ -91,8 +99,8 @@ Special Abilities:
 – Missile Resistance: 20%
 – Immunity to backstab, poison, disease, Cloudkill~
 
-@11 = ~Shapechange: Mind Flayer~
-@12 = ~Shapechange: Mind Flayer
+@105 = ~Shapechange: Mind Flayer~
+@205 = ~Shapechange: Mind Flayer
 
 Strength: 10
 Dexterity: 10
@@ -105,12 +113,12 @@ Special Abilities:
 – Each hit drains 5 Intelligence from target (no save)
 – May use Psionic Blast ability: Stuns for 5 rounds (Save vs. Spell to negate)~
 
-@13 = ~Psionic Blast~
-@14 = ~Psionic Blast
+@106 = ~Psionic Blast~
+@206 = ~Psionic Blast
 A mind flayer's preferred method of attack is the psionic blast, a blast of mental energy that will stun an opponent for five rounds unless a save vs. Spell is made.~
 
-@15 = ~Shapechange: Greater Wolfwere~
-@16 = ~Shapechange: Greater Wolfwere
+@107 = ~Shapechange: Greater Wolfwere~
+@207 = ~Shapechange: Greater Wolfwere
 
 Strength: 19
 Dexterity: 19
