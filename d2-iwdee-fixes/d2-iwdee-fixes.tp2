@@ -2,17 +2,16 @@ BACKUP ~d2-iwdee-fixes\backup~
 AUTHOR ~Dan_P, check the readme for forum link~
 VERSION ~1.1~
 
-AUTO_TRA ~d2-iwdee-fixes/tra/%s~
 LANGUAGE ~English~ ~english~ ~d2-iwdee-fixes/tra/english/setup.tra~
 	 
 //Installing
 	 
-BEGIN @1
+BEGIN @1 /* Patch Files */
 REQUIRE_PREDICATE GAME_IS ~iwdee~ @3
 SUBCOMPONENT @4
 LABEL ~D2-IWDEE-POLYMORPH~
 INCLUDE ~%MOD_FOLDER%/install/polymorphv2.tpa~
 
-BEGIN @2
+BEGIN @2 /* Copy Files (use if patching fails) */
 SUBCOMPONENT @4
 INCLUDE ~%MOD_FOLDER%/install/polymorph.tpa~

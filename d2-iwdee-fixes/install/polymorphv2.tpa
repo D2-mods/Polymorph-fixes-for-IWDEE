@@ -1,4 +1,6 @@
-COPY ~%MOD_FOLDER%/data/#EFF_M15.WAV~ ~override~	// copy WAV to override (taken from v2.6)
+ACTION_IF (NOT FILE_EXISTS_IN_GAME ~#EFF_M15.WAV~) BEGIN		// copy WAV to override (taken from v2.6)
+COPY ~%MOD_FOLDER%/data/#EFF_M15.WAV~ ~override~
+END
 
 COPY_EXISTING ~CDPOLYBB.ITM~ ~override~				// patch polymorphs
   LPF DELETE_EFFECT 
@@ -27,8 +29,6 @@ COPY_EXISTING ~CDSHWELE.ITM~ ~override~
   
 COPY_EXISTING ~SHTROLL.CRE~ ~override~
 PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
-  READ_LONG 0x238 str
-  READ_LONG 0x239 bonus
   WRITE_BYTE 0x238 18
   WRITE_BYTE 0x239 100
   END
