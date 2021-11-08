@@ -1,6 +1,6 @@
-COPY ~%MOD_FOLDER%/data~ ~override~				// copy files to override
+COPY ~%MOD_FOLDER%/data~ ~override~    // copy files to override
 
-COPY_EXISTING ~SPIN198.SPL~ ~override~			// begin text edits
+COPY_EXISTING ~SPIN198.SPL~ ~override~    // begin text edits
   SAY NAME1 @100
   SAY UNIDENTIFIED_DESC @200
   

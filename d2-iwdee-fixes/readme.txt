@@ -1,21 +1,25 @@
-Polymorph fixes for IWD:EE
+Polymorph (and other) fixes for IWD:EE
 GitHub: https://github.com/D2-mods/Polymorph-fixes-for-IWDEE 
-Forum: https://forums.beamdog.com/discussion/82676/polymorph-fixes-for-iwd-ee/
 Game version: IWD:EE v2.5 and v2.6, and possibly older versions (untested)
 
 
-WHAT THIS MOD DOES:
-
+==================================================
+WHAT THIS MOD DOES
+==================================================
 Fixes stats of some polymorphs and edits descriptions of Shapechange forms to all share the same layout. The descriptions for fire/earth elemental now also list the correct resistances (identical to Druid forms). Also makes minor changes to the Mind Flayer's Psionic Blast.
 
-
-INSTALL INFO:
-
-Copy zip contents to game directory and run setup-d2-iwdee-fixes.exe. You have the option to patch or copy files to the override. To uninstall, just run the setup again. By its nature, this mod will conflict with any mod that makes changes to stats of Shapechange forms.
+UPDATE v1.3: added a fix for nymph.BCS (Call Woodland Beings) crashing with EEex (v0.8.7-alpha)
 
 
-FIXES/TWEAKS:
+==================================================
+INSTALL INFO
+==================================================
+Extract to game folder and run the setup to install or uninstall. I'm not familiar with Mac/Linux, but installing should be the same as other mods (mod packages are cross-platform). By its nature, this mod will conflict with any mod that makes changes to stats of Shapechange forms.
 
+
+==================================================
+FIXES/TWEAKS
+==================================================
 Polymorph Self
 - Winter Wolf, Boring Beetle, and Polar Bear are no longer permanently hasted
 
@@ -24,7 +28,7 @@ Shapechange (all changed to match descriptions)
 - Water Elemental weapon damage changed from 1d8 to 4d8
 
 Text edits:
-- all Shapechange forms
+- all Shapechange forms (consistent layouts and accurate stats)
 
 Psionic Blast
 - added missing description for v2.5
@@ -33,9 +37,13 @@ Psionic Blast
 2. ability regenerates when used (this just skips the extra step of needing to re-shapechange into a Mind Flayer if you wanted to use Psionic Blast more than once)
 3. added back the orb thing over a stunned creature
 
+Call Woodland Beings
+- patches the nymph's AI script to fix a crash with EEex (v0.8.7-alpha)
 
-CREDITS:
 
+==================================================
+CREDITS
+==================================================
 Coding, Testing: Dan_P
 
 Tools and Resources used:
@@ -46,10 +54,12 @@ Tools and Resources used:
 - Infinity Auto Packager https://github.com/InfinityTools/InfinityAutoPackager
 - IESDP https://gibberlings3.github.io/iesdp/index.htm
 
-Thanks to the devs at Black Isle and Beamdog for their work on IWD and IWD:EE. I don't own any files here and anyone is free to re-use any part of this mod for their own projects.
 
-
-VERSION HISTORY:
+==================================================
+VERSION HISTORY
+==================================================
+v1.3
+- added a fix for nymph.BCS (Call Woodland Beings) crashing with EEex (v0.8.7-alpha)
 
 v1.0
 -initial release

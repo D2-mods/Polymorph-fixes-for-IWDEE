@@ -1,11 +1,19 @@
 //Setup
-@1 = ~Patch Files~
-@2 = ~Copy Files (use if patching fails)~
-@3 = ~Hint: Try installing on IWD:EE~
-@4 = ~Polymorph fixes for IWD:EE~
+@10 = ~Polymorph fixes for IWD:EE~
+@11 = ~Patch Files~
+@12 = ~Copy Files (use if patching fails)~
+
+@20 = ~Patch for nymph.BCS (fixes crash with EEex)~
+@21 = ~Add nymph Confusion spell (as dummy spell)~
+@22 = ~Remove check for non-existing nymph Confusion~
+@23 = ~Cast the memorized priest Confusion instead~
+
+@1 = ~Hint: Try installing on IWD:EE~
+@2 = ~WARNING: NYMPH.BCS detected in override - this patch may or may not be applied (or even be needed)
+~
 
 
-//Descriptions
+//Spell descriptions
 @100 = ~Shapechange: Water Elemental~
 @200 = ~Shapechange: Water Elemental
 

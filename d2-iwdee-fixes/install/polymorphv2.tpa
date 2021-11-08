@@ -1,8 +1,8 @@
-ACTION_IF (NOT FILE_EXISTS_IN_GAME ~#EFF_M15.WAV~) BEGIN		// copy WAV to override (taken from v2.6)
+ACTION_IF (NOT FILE_EXISTS_IN_GAME ~#EFF_M15.WAV~) BEGIN    // copy WAV to override (taken from v2.6)
 COPY ~%MOD_FOLDER%/data/#EFF_M15.WAV~ ~override~
 END
 
-COPY_EXISTING ~CDPOLYBB.ITM~ ~override~				// patch polymorphs
+COPY_EXISTING ~CDPOLYBB.ITM~ ~override~    // patch polymorphs
   LPF DELETE_EFFECT 
   INT_VAR 
   match_opcode = 16
@@ -34,7 +34,7 @@ PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
   END
 BUT_ONLY_IF_IT_CHANGES
 
-COPY_EXISTING ~SPIN974.SPL~ ~override~				// patch Psionic Blast
+COPY_EXISTING ~SPIN974.SPL~ ~override~    // patch Psionic Blast
   LPF ALTER_SPELL_HEADER
   INT_VAR 
   projectile = 414
@@ -132,7 +132,7 @@ COPY_EXISTING ~SPIN974.SPL~ ~override~				// patch Psionic Blast
   resource = SPIN974
   END
   
-COPY_EXISTING ~SPIN198.SPL~ ~override~				// text edits
+COPY_EXISTING ~SPIN198.SPL~ ~override~    // text edits
   SAY NAME1 @100
   SAY UNIDENTIFIED_DESC @200
   

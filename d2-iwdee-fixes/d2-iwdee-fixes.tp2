@@ -1,17 +1,62 @@
 BACKUP ~d2-iwdee-fixes\backup~
 AUTHOR ~Dan_P, check the readme for forum link~
-VERSION ~1.2~
+VERSION ~1.3~
 
 LANGUAGE ~English~ ~english~ ~d2-iwdee-fixes/tra/english/setup.tra~
-	 
-//Installing
-	 
-BEGIN @1 /* Patch Files */
-REQUIRE_PREDICATE GAME_IS ~iwdee~ @3
-SUBCOMPONENT @4
+
+
+//Polymorph fixes for IWD:EE
+
+BEGIN @11    // patch files
+REQUIRE_PREDICATE GAME_IS ~iwdee~ @1
+SUBCOMPONENT @10
 LABEL ~D2-IWDEE-POLYMORPH~
 INCLUDE ~%MOD_FOLDER%/install/polymorphv2.tpa~
 
-BEGIN @2 /* Copy Files (use if patching fails) */
-SUBCOMPONENT @4
+BEGIN @12    // copy files
+SUBCOMPONENT @10
 INCLUDE ~%MOD_FOLDER%/install/polymorph.tpa~
+
+
+//Patch for nymph.BCS (fixes crash with EEex)
+
+BEGIN @21    // add NYMPH_CONFUSION (as dummy spell)
+REQUIRE_PREDICATE GAME_IS ~iwdee~ @1
+SUBCOMPONENT @20
+LABEL ~D2-IWDEE-NYMPH~
+
+ACTION_IF (FILE_EXISTS ~override/nymph.BCS~)    // AI script already in override
+BEGIN WARN @2 END
+
+ADD_SPELL ~%MOD_FOLDER%\nymph\d2nymphc.SPL~ 3 7 NYMPH_CONFUSION
+  SAY NAME1 ~Confusion~
+
+COPY_EXISTING ~nymph.BCS~ ~override~
+DECOMPILE_AND_PATCH BEGIN
+  REPLACE_TEXTUALLY EXACT_MATCH ~3704~ ~NYMPH_CONFUSION~
+END
+
+
+BEGIN @22    // remove check for SPIN704
+SUBCOMPONENT @20
+
+ACTION_IF (FILE_EXISTS ~override/nymph.BCS~)    // AI script already in override
+BEGIN WARN @2 END
+
+COPY_EXISTING ~nymph.BCS~ ~override~
+DECOMPILE_AND_PATCH BEGIN
+  REPLACE_TEXTUALLY EXACT_MATCH ~Spell(NearestEnemyOf(Myself),3704)~ ~~
+END
+
+
+BEGIN @23    // cast CLERIC_CONFUSION
+SUBCOMPONENT @20
+
+ACTION_IF (FILE_EXISTS ~override/nymph.BCS~)    // AI script already in override
+BEGIN WARN @2 END
+
+COPY_EXISTING ~nymph.BCS~ ~override~
+DECOMPILE_AND_PATCH BEGIN
+  REPLACE_TEXTUALLY EXACT_MATCH ~3704~ ~CLERIC_CONFUSION~
+END
+
