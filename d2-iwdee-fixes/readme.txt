@@ -58,6 +58,9 @@ Tools and Resources used:
 ==================================================
 VERSION HISTORY
 ==================================================
+v1.4
+- added check for Better IWD Pregen (nymph.BCS patches will be skipped)
+
 v1.3
 - added a fix for nymph.BCS (Call Woodland Beings) crashing with EEex (v0.8.7-alpha)
 

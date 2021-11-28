@@ -9,7 +9,9 @@
 @23 = ~Cast the memorized priest Confusion instead~
 
 @1 = ~Hint: Try installing on IWD:EE~
-@2 = ~WARNING: NYMPH.BCS detected in override - this patch may or may not be applied (or even be needed)
+@2 = ~Better IWD Pregen was detected - this component will be skipped
+~
+@3 = ~WARNING: NYMPH.BCS detected in override - this patch may or may not be applied (or even be needed)
 ~
 
 

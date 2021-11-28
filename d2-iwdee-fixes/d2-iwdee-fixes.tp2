@@ -1,6 +1,6 @@
-BACKUP ~d2-iwdee-fixes\backup~
-AUTHOR ~Dan_P, check the readme for forum link~
-VERSION ~1.3~
+BACKUP ~d2-iwdee-fixes/backup~
+AUTHOR ~Dan_P~
+VERSION ~1.4~
 
 LANGUAGE ~English~ ~english~ ~d2-iwdee-fixes/tra/english/setup.tra~
 
@@ -25,10 +25,10 @@ REQUIRE_PREDICATE GAME_IS ~iwdee~ @1
 SUBCOMPONENT @20
 LABEL ~D2-IWDEE-NYMPH~
 
-ACTION_IF (FILE_EXISTS ~override/nymph.BCS~)    // AI script already in override
-BEGIN WARN @2 END
+FORBID_FILE ~override/d2cwb0.BCS~ @2    // check for Better IWD Pregen (patches will be skipped)
+ACTION_IF (FILE_EXISTS ~override/nymph.BCS~) BEGIN WARN @3 END    // check for NYMPH.BCS in override
 
-ADD_SPELL ~%MOD_FOLDER%\nymph\d2nymphc.SPL~ 3 7 NYMPH_CONFUSION
+ADD_SPELL ~%MOD_FOLDER%/nymph/d2nymphc.SPL~ 3 7 NYMPH_CONFUSION
   SAY NAME1 ~Confusion~
 
 COPY_EXISTING ~nymph.BCS~ ~override~
@@ -40,8 +40,7 @@ END
 BEGIN @22    // remove check for SPIN704
 SUBCOMPONENT @20
 
-ACTION_IF (FILE_EXISTS ~override/nymph.BCS~)    // AI script already in override
-BEGIN WARN @2 END
+ACTION_IF (FILE_EXISTS ~override/nymph.BCS~) BEGIN WARN @3 END   // check for NYMPH.BCS in override
 
 COPY_EXISTING ~nymph.BCS~ ~override~
 DECOMPILE_AND_PATCH BEGIN
@@ -52,8 +51,7 @@ END
 BEGIN @23    // cast CLERIC_CONFUSION
 SUBCOMPONENT @20
 
-ACTION_IF (FILE_EXISTS ~override/nymph.BCS~)    // AI script already in override
-BEGIN WARN @2 END
+ACTION_IF (FILE_EXISTS ~override/nymph.BCS~) BEGIN WARN @3 END    // check for NYMPH.BCS in override
 
 COPY_EXISTING ~nymph.BCS~ ~override~
 DECOMPILE_AND_PATCH BEGIN
