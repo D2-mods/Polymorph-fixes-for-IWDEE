@@ -1,60 +1,63 @@
 BACKUP ~d2-iwdee-fixes/backup~
 AUTHOR ~Dan_P~
-VERSION ~1.4~
+VERSION ~1.5~
 
-LANGUAGE ~English~ ~english~ ~d2-iwdee-fixes/tra/english/setup.tra~
+LANGUAGE ~English~ 
+         ~english~ 
+         ~d2-iwdee-fixes/tra/english/setup.tra~
 
 
 //Polymorph fixes for IWD:EE
 
-BEGIN @11    // patch files
-REQUIRE_PREDICATE GAME_IS ~iwdee~ @1
-SUBCOMPONENT @10
+BEGIN @1
+REQUIRE_PREDICATE GAME_IS ~iwdee~ @2
 LABEL ~D2-IWDEE-POLYMORPH~
-INCLUDE ~%MOD_FOLDER%/install/polymorphv2.tpa~
-
-BEGIN @12    // copy files
-SUBCOMPONENT @10
-INCLUDE ~%MOD_FOLDER%/install/polymorph.tpa~
+INCLUDE ~%MOD_FOLDER%/install/polymorph.tph~
 
 
 //Patch for nymph.BCS (fixes crash with EEex)
 
-BEGIN @21    // add NYMPH_CONFUSION (as dummy spell)
-REQUIRE_PREDICATE GAME_IS ~iwdee~ @1
-SUBCOMPONENT @20
-LABEL ~D2-IWDEE-NYMPH~
+BEGIN @4    // add Nymph confusion (as dummy spell)
+REQUIRE_PREDICATE GAME_IS ~iwdee~ @2
+SUBCOMPONENT @3
+LABEL ~D2-IWDEE-NYMPHFIX1~
+FORBID_FILE ~override/d2cwb0.BCS~ @50    // check for Better IWD Pregen (patches will be skipped)
+INCLUDE ~%MOD_FOLDER%/install/nymphfix1.tph~
 
-FORBID_FILE ~override/d2cwb0.BCS~ @2    // check for Better IWD Pregen (patches will be skipped)
-ACTION_IF (FILE_EXISTS ~override/nymph.BCS~) BEGIN WARN @3 END    // check for NYMPH.BCS in override
+BEGIN @5    // remove check for SPIN704
+SUBCOMPONENT @3
+LABEL ~D2-IWDEE-NYMPHFIX2~
+INCLUDE ~%MOD_FOLDER%/install/nymphfix2.tph~
 
-ADD_SPELL ~%MOD_FOLDER%/nymph/d2nymphc.SPL~ 3 7 NYMPH_CONFUSION
-  SAY NAME1 ~Confusion~
-
-COPY_EXISTING ~nymph.BCS~ ~override~
-DECOMPILE_AND_PATCH BEGIN
-  REPLACE_TEXTUALLY EXACT_MATCH ~3704~ ~NYMPH_CONFUSION~
-END
-
-
-BEGIN @22    // remove check for SPIN704
-SUBCOMPONENT @20
-
-ACTION_IF (FILE_EXISTS ~override/nymph.BCS~) BEGIN WARN @3 END   // check for NYMPH.BCS in override
-
-COPY_EXISTING ~nymph.BCS~ ~override~
-DECOMPILE_AND_PATCH BEGIN
-  REPLACE_TEXTUALLY EXACT_MATCH ~Spell(NearestEnemyOf(Myself),3704)~ ~~
-END
+BEGIN @6    // cast Cleric confusion
+SUBCOMPONENT @3
+LABEL ~D2-IWDEE-NYMPHFIX3~
+INCLUDE ~%MOD_FOLDER%/install/nymphfix3.tph~
 
 
-BEGIN @23    // cast CLERIC_CONFUSION
-SUBCOMPONENT @20
+//Make movement rate bonuses of polymorph forms more consistent
 
-ACTION_IF (FILE_EXISTS ~override/nymph.BCS~) BEGIN WARN @3 END    // check for NYMPH.BCS in override
+BEGIN @8    // Movement bonuses bypass Free Action
+REQUIRE_PREDICATE GAME_IS ~iwdee~ @2
+SUBCOMPONENT @7
+LABEL ~D2-IWDEE-MOVEBONUS1~
+INCLUDE ~%MOD_FOLDER%/install/movebonus1.tph~
 
-COPY_EXISTING ~nymph.BCS~ ~override~
-DECOMPILE_AND_PATCH BEGIN
-  REPLACE_TEXTUALLY EXACT_MATCH ~3704~ ~CLERIC_CONFUSION~
-END
+BEGIN @9    // Movement bonuses are blocked by Free Action
+SUBCOMPONENT @7
+LABEL ~D2-IWDEE-MOVEBONUS0~
+INCLUDE ~%MOD_FOLDER%/install/movebonus0.tph~
 
+
+// Increase movement speed of Winter Wolf and Polar Bear forms
+
+BEGIN @11    // for Druids only
+REQUIRE_PREDICATE GAME_IS ~iwdee~ @2
+SUBCOMPONENT @10
+LABEL ~D2-IWDEE-FASTERDRUIDS~
+INCLUDE ~%MOD_FOLDER%/install/fasterdruids.tph~
+
+BEGIN @12    // for Druids and Polymorph Self
+SUBCOMPONENT @10
+LABEL ~D2-IWDEE-FASTERDRUIDS+~
+INCLUDE ~%MOD_FOLDER%/install/fasterdruids+.tph~
