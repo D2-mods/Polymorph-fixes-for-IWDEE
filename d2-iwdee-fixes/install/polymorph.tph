@@ -1,18 +1,18 @@
 ACTION_IF (NOT FILE_EXISTS_IN_GAME ~#EFF_M15.WAV~) BEGIN    // copy WAV to override (taken from v2.6)
-COPY ~%MOD_FOLDER%/data/#EFF_M15.WAV~ ~override~
+  COPY ~%MOD_FOLDER%/data/#EFF_M15.WAV~ ~override~
 END
 
 COPY_EXISTING ~CDPOLYBB.ITM~ ~override~    // patch polymorphs
-  LPF DELETE_EFFECT 
-  INT_VAR match_opcode=16 END
+  LPF delete_movement_effects END
+BUT_ONLY
 
 COPY_EXISTING ~CDPOLYPB.ITM~ ~override~
-  LPF DELETE_EFFECT 
-  INT_VAR match_opcode=16 END
+  LPF delete_movement_effects END
+BUT_ONLY
   
 COPY_EXISTING ~CDPOLYWW.ITM~ ~override~
-  LPF DELETE_EFFECT 
-  INT_VAR match_opcode=16 END
+  LPF delete_movement_effects END
+BUT_ONLY
   
 COPY_EXISTING ~CDSHWELE.ITM~ ~override~
   LPF ALTER_ITEM_HEADER 
@@ -20,6 +20,7 @@ COPY_EXISTING ~CDSHWELE.ITM~ ~override~
     header_type = 1
     dicenumber = 4
   END
+BUT_ONLY
   
 COPY_EXISTING ~SHTROLL.CRE~ ~override~
   PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
@@ -29,8 +30,7 @@ COPY_EXISTING ~SHTROLL.CRE~ ~override~
 BUT_ONLY
 
 COPY_EXISTING ~SPIN974.SPL~ ~override~    // patch Psionic Blast
-  LPF ALTER_SPELL_HEADER 
-  INT_VAR projectile=414 END
+  LPF ALTER_SPELL_HEADER INT_VAR projectile=414 END
   
   LPF DELETE_EFFECT INT_VAR match_opcode=324 END
   LPF DELETE_EFFECT INT_VAR match_opcode=215 END
@@ -118,6 +118,7 @@ COPY_EXISTING ~SPIN974.SPL~ ~override~    // patch Psionic Blast
   STR_VAR
     resource = SPIN974
   END
+BUT_ONLY
   
 COPY_EXISTING ~SPIN198.SPL~ ~override~    // text edits
   SAY NAME1 @100
@@ -150,3 +151,11 @@ COPY_EXISTING ~SPIN974.SPL~ ~override~
 COPY_EXISTING ~SPIN155.SPL~ ~override~
   SAY NAME1 @107
   SAY UNIDENTIFIED_DESC @207
+  
+COPY_EXISTING ~SPWI497.SPL~ ~override~
+  SAY NAME1 @120
+  SAY UNIDENTIFIED_DESC @220
+  
+COPY_EXISTING ~SPWI498.SPL~ ~override~
+  SAY NAME1 @121
+  SAY UNIDENTIFIED_DESC @221

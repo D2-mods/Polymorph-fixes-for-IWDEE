@@ -12,8 +12,8 @@
 @9 = ~Movement bonuses are blocked by Free Action~
 
 @10 = ~Increase movement speed of Winter Wolf and Polar Bear forms~
-@11 = ~for Druids only~
-@12 = ~for Druids and Polymorph Self~
+@11 = ~for Druids and Polymorph Self~
+@12 = ~for Druids only~
 
 
 //WeiDU messages
@@ -23,7 +23,7 @@
 ~
 
 
-//Spell descriptions
+//Shapechange descriptions
 @100 = ~Shapechange: Water Elemental~
 @200 = ~Shapechange: Water Elemental
 
@@ -152,3 +152,97 @@ Special Abilities:
 – Acid Resistance: 50%
 – Immune to weapons of +1 enchantment or less
 – Regenerates 8 Hit Points per second~
+
+
+//Polymorph Self descriptions
+@120 = ~Shapeshift: Brown Bear~
+@220 = ~Shapeshift: Brown Bear
+
+Strength: 18/00
+Dexterity: 12
+
+Base Armor Class: 6
+Number of Attacks: 3
+Attack Damage: 1d6 (piercing), strikes as +1 weapon
+
+Special Abilities:
+– Increased movement rate~
+
+@121 = ~Shapeshift: Black Bear~
+@221 = ~Shapeshift: Black Bear
+
+Strength: 18/00
+Dexterity: 12
+
+Base Armor Class: 7
+Number of Attacks: 3
+Attack Damage: 1d6 (piercing), strikes as +1 weapon
+
+Special Abilities:
+– Increased movement rate~
+
+
+//Movement speed (Winter Wolf and Polar Bear)
+@140 = ~Shapeshift: Winter Wolf~
+@240 = ~Shapeshift: Winter Wolf
+
+Strength: 18
+Dexterity: 13
+
+Base Armor Class: 2
+Number of Attacks: 2
+Attack Damage: 1d6 slashing
+
+Special Abilities:
+– Cold Resistance: 75%
+– Fire Resistance: -25%
+– Increased movement rate
+
+The Druid is healed 12 Hit Points after using this ability.~
+
+@141 = ~Shapeshift: Polar Bear~
+@241 = ~Shapeshift: Polar Bear
+
+Strength: 18/00
+Dexterity: 10
+
+Base Armor Class: 4
+Number of Attacks: 3
+Attack Damage: 1d12 slashing
+
+Special Abilities:
+– Cold Resistance: 75%
+– Fire Resistance: -25%
+– Increased movement rate
+
+The Druid is healed 12 Hit Points after using this ability.~
+
+@142 = ~Shapeshift: Winter Wolf~
+@242 = ~Shapeshift: Winter Wolf
+
+Strength: 18
+Dexterity: 13
+
+Base Armor Class: 2
+Number of Attacks: 2
+Attack Damage: 1d6 slashing
+
+Special Abilities:
+– Cold Resistance: 75%
+– Fire Resistance: -25%
+– Increased movement rate~
+
+@143 = ~Shapeshift: Polar Bear~
+@243 = ~Shapeshift: Polar Bear
+
+Strength: 18/00
+Dexterity: 10
+
+Base Armor Class: 4
+Number of Attacks: 3
+Attack Damage: 1d12 slashing
+
+Special Abilities:
+– Cold Resistance: 75%
+– Fire Resistance: -25%
+– Increased movement rate~

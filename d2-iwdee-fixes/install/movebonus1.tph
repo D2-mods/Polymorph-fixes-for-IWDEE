@@ -1,15 +1,13 @@
 COPY_EXISTING_REGEXP ~ply.*.itm~ ~override~
   LPF ALTER_EFFECT INT_VAR silent=1 match_opcode=126 opcode=176 END
+  LPF ALTER_EFFECT INT_VAR silent=1 match_opcode=176 parameter2=5 END
 BUT_ONLY
 
 COPY_EXISTING_REGEXP ~cdpoly.*.itm~ ~override~
   LPF ALTER_EFFECT INT_VAR silent=1 match_opcode=126 opcode=176 END
+  LPF ALTER_EFFECT INT_VAR silent=1 match_opcode=176 parameter2=5 END
 BUT_ONLY
 
 COPY_EXISTING ~TROLLALL.ITM~ ~override~
   LPF ALTER_EFFECT INT_VAR silent=1 match_opcode=126 opcode=176 END
-BUT_ONLY
-
-COPY_EXISTING ~plysala.ITM~ ~override~
-  LPF ALTER_EFFECT INT_VAR silent=1 match_opcode=176 parameter2=5 END
 BUT_ONLY

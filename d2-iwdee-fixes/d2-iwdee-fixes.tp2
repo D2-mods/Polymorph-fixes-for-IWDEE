@@ -1,6 +1,11 @@
 BACKUP ~d2-iwdee-fixes/backup~
 AUTHOR ~Dan_P~
-VERSION ~1.5~
+VERSION ~1.6~
+
+ALWAYS
+  INCLUDE ~%MOD_FOLDER%/lib/delete_movement_effects.tpa~
+  INCLUDE ~%MOD_FOLDER%/lib/iwdee_movement_equip.tpa~
+END
 
 LANGUAGE ~English~ 
          ~english~ 
@@ -49,15 +54,15 @@ LABEL ~D2-IWDEE-MOVEBONUS0~
 INCLUDE ~%MOD_FOLDER%/install/movebonus0.tph~
 
 
-// Increase movement speed of Winter Wolf and Polar Bear forms
+//Increase movement speed of Winter Wolf and Polar Bear forms
 
-BEGIN @11    // for Druids only
+BEGIN @11    // for Druids and Polymorph Self
 REQUIRE_PREDICATE GAME_IS ~iwdee~ @2
 SUBCOMPONENT @10
-LABEL ~D2-IWDEE-FASTERDRUIDS~
-INCLUDE ~%MOD_FOLDER%/install/fasterdruids.tph~
+LABEL ~D2-IWDEE-FASTERDRUIDS1~
+INCLUDE ~%MOD_FOLDER%/install/fasterdruids1.tph~
 
-BEGIN @12    // for Druids and Polymorph Self
+BEGIN @12    // for Druids only
 SUBCOMPONENT @10
-LABEL ~D2-IWDEE-FASTERDRUIDS+~
-INCLUDE ~%MOD_FOLDER%/install/fasterdruids+.tph~
+LABEL ~D2-IWDEE-FASTERDRUIDS0~
+INCLUDE ~%MOD_FOLDER%/install/fasterdruids0.tph~

@@ -20,7 +20,7 @@ Components:
 3. Make movement rate bonuses of polymorph forms more consistent
 4. Increase movement speed of Winter Wolf and Polar Bear forms
 
-All components can be installed independently and in any order. The movement rate components should be compatible with anything, as long as file names are unchanged.
+All components can be installed independently and in any order. The movement rate tweaks should be compatible with anything, as long as file names are unchanged.
 
 
 ==================================================
@@ -61,6 +61,11 @@ Tools and Resources used:
 ==================================================
 VERSION HISTORY
 ==================================================
+v1.6
+- Component 4 (movement tweak) will also update the IWDEE v2.5 polymorphs to use the stacking multiplier (regardless of which option is chosen). This was already the case in v2.6.
+- Component 5 (faster wolf/bear forms) now updates description text and adds a portrait icon. It will also now increase speed of the Brown Bear and Black Bear polymorphs.
+- updated install to to handle patching previously modified files better (i.e. avoid duping effects)
+
 v1.5
 - added options for making movement rate bonuses of shapeshifts more consistent
 - added an option for faster movement speed for the Winter Wolf and Polar Bear forms

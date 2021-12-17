@@ -1,4 +1,4 @@
-ACTION_IF (FILE_EXISTS ~override/nymph.BCS~) BEGIN WARN @51 END   // check for NYMPH.BCS in override
+ACTION_IF (FILE_EXISTS ~override/nymph.BCS~) BEGIN WARN @51 END    // check for NYMPH.BCS in override
 
 COPY_EXISTING ~nymph.BCS~ ~override~
 DECOMPILE_AND_PATCH BEGIN
