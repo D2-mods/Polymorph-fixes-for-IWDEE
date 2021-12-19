@@ -1,6 +1,6 @@
 DEFINE_PATCH_FUNCTION iwdee_movement_equip
 
-  INT_VAR speed = 150    // movement percentage modifier
+  INT_VAR speed = 150    // percentage of base movement (default = 150% or 1.5x)
     
 BEGIN
 
