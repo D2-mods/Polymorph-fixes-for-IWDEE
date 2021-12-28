@@ -10,7 +10,9 @@ END
 LANGUAGE ~English~ 
          ~english~ 
          ~d2-iwdee-fixes/tra/english/setup.tra~
-
+LANGUAGE ~Russian~ 
+         ~russian~ 
+         ~d2-iwdee-fixes/tra/russian/setup.tra~
 
 //Polymorph fixes for IWD:EE
 
