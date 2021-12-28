@@ -49,6 +49,8 @@ CREDITS
 ==================================================
 Coding, Testing: Dan_P
 
+Russian translation: yota13
+
 Tools and Resources used:
 - WeiDU v249 https://github.com/WeiDUorg/weidu
 - NearInfinity v2.2-20210501 https://github.com/Argent77/NearInfinity
@@ -61,6 +63,9 @@ Tools and Resources used:
 ==================================================
 VERSION HISTORY
 ==================================================
+v1.8
+- added Russian translation by yota13 from https://arcanecoast.ru/
+
 v1.7
 - fixed a regression added by the last update; component 1 (fixes) should no longer overwrite component 4 (faster wolf/bear) if installed after
 

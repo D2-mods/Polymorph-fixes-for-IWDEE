@@ -1,6 +1,6 @@
 BACKUP ~d2-iwdee-fixes/backup~
 AUTHOR ~Dan_P~
-VERSION ~1.7~
+VERSION ~1.8~
 
 ALWAYS
   INCLUDE ~%MOD_FOLDER%/lib/delete_movement_effects.tpa~
