@@ -144,8 +144,8 @@ DEFINE_PATCH_FUNCTION add_movement_spell
 
   INT_VAR speed = 150    // % of base movement (150% = 1.5x), use range of 0-30 for other modes
           mode = 5    // 0 = increment, 1 = set, 2 = set %, 5 = set stacking % (EE-only)
-		  duration = 30    // duration in seconds
-		  level = 1    // spell level
+          duration = 30    // duration in seconds
+          level = 1    // spell level
           bypass = 0    // 1 = bypass free action, 0 = not bypass
     
 	
@@ -210,8 +210,8 @@ DEFINE_ACTION_FUNCTION add_movement_spell
 
   INT_VAR speed = 150    // % of base movement (150% = 1.5x), use range of 0-30 for other modes
           mode = 5    // 0 = increment, 1 = set, 2 = set %, 5 = set stacking % (EE-only)
-		  duration = 30    // duration in seconds
-		  level = 1    // spell level
+          duration = 30    // duration in seconds
+          level = 1    // spell level
           bypass = 0    // 1 = bypass free action, 0 = not bypass
 		  
   STR_VAR spell = ~~    // resource name of spell file to patch
