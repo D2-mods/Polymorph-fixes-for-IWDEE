@@ -1,10 +1,9 @@
 BACKUP ~d2-iwdee-fixes/backup~
 AUTHOR ~Dan_P~
-VERSION ~1.8~
+VERSION ~1.9~
 
 ALWAYS
-  INCLUDE ~%MOD_FOLDER%/lib/delete_movement_effects.tpa~
-  INCLUDE ~%MOD_FOLDER%/lib/iwdee_movement_equip.tpa~
+  INCLUDE ~%MOD_FOLDER%/lib/d2_movement_effects.tpa~
 END
 
 LANGUAGE ~English~ 
@@ -14,6 +13,9 @@ LANGUAGE ~Russian~
          ~russian~ 
          ~d2-iwdee-fixes/tra/russian/setup.tra~
 
+
+////////////////////////////////////////////////////////////
+
 //Polymorph fixes for IWD:EE
 
 BEGIN @1
@@ -21,6 +23,7 @@ REQUIRE_PREDICATE GAME_IS ~iwdee~ @2
 LABEL ~D2-IWDEE-POLYMORPH~
 INCLUDE ~%MOD_FOLDER%/install/polymorph.tph~
 
+////////////////////////////////////////////////////////////
 
 //Patch for nymph.BCS (fixes crash with EEex)
 
@@ -41,6 +44,7 @@ SUBCOMPONENT @3
 LABEL ~D2-IWDEE-NYMPHFIX3~
 INCLUDE ~%MOD_FOLDER%/install/nymphfix3.tph~
 
+////////////////////////////////////////////////////////////
 
 //Make movement rate bonuses of polymorph forms more consistent
 
@@ -55,6 +59,7 @@ SUBCOMPONENT @7
 LABEL ~D2-IWDEE-MOVEBONUS0~
 INCLUDE ~%MOD_FOLDER%/install/movebonus0.tph~
 
+////////////////////////////////////////////////////////////
 
 //Increase movement speed of Winter Wolf and Polar Bear forms
 
@@ -68,3 +73,25 @@ BEGIN @12    // for Druids only
 SUBCOMPONENT @10
 LABEL ~D2-IWDEE-FASTERDRUIDS0~
 INCLUDE ~%MOD_FOLDER%/install/fasterdruids0.tph~
+
+////////////////////////////////////////////////////////////
+
+//Uncap Crippling Strike (capped at -7 in IWD:EE v2.5 and v2.6.6)
+//allows Crippling Strike to scale to -16 (Assassin at level 50)
+//does not extend tables (main purpose is to allow Assassins to actually reach -10)
+
+BEGIN @13
+REQUIRE_PREDICATE GAME_IS ~iwdee~ @2
+REQUIRE_PREDICATE !(MOD_IS_INSTALLED ~d2-modfixes.tp2~ 99) @52
+LABEL ~D2-TWEAKS-CRIPPSTR16~
+INCLUDE ~%MOD_FOLDER%/install/crippstr16.tph~
+
+////////////////////////////////////////////////////////////
+
+
+
+
+/*
+
+
+*/

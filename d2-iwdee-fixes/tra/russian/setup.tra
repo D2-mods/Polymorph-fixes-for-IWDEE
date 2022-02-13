@@ -1,25 +1,25 @@
 //Setup
 @1 = ~Polymorph fixes for IWD:EE~
 @2 = ~Hint: Try installing on IWD:EE~
-
 @3 = ~Patch for nymph.BCS (fixes crash with EEex)~
 @4 = ~Add nymph Confusion spell (as dummy spell)~
 @5 = ~Remove check for non-existing nymph Confusion~
 @6 = ~Cast the memorized priest Confusion instead~
-
 @7 = ~Make movement rate bonuses of polymorph forms more consistent~
 @8 = ~Movement bonuses bypass Free Action~
 @9 = ~Movement bonuses are blocked by Free Action~
-
 @10 = ~Increase movement speed of Winter Wolf and Polar Bear forms~
 @11 = ~for Druids and Polymorph Self~
 @12 = ~for Druids only~
+@13 = ~Uncap Crippling Strike (capped at -7 in v2.5 and v2.6.6)~
 
 
 //WeiDU messages
 @50 = ~Better IWD Pregen was detected - this component will be skipped
 ~
 @51 = ~WARNING: NYMPH.BCS detected in override - this patch may or may not be applied (or even be needed)
+~
+@52 = ~This component is already installed from another mod
 ~
 
 

@@ -1,6 +1,7 @@
 Polymorph (and other) fixes for IWD:EE
 GitHub: https://github.com/D2-mods/Polymorph-fixes-for-IWDEE 
 Installs on: IWD:EE (tested on v2.5 and v2.6)
+Languages: English, Russian (yota13)
 
 
 ==================================================
@@ -19,6 +20,7 @@ Components:
 2. Patch for nymph.BCS (fixes crash with EEex)
 3. Make movement rate bonuses of polymorph forms more consistent
 4. Increase movement speed of Winter Wolf and Polar Bear forms
+5. Uncap Crippling Strike (capped at -7 in v2.5 and v2.6.6)
 
 All components can be installed independently and in any order. The movement rate tweaks should be compatible with anything, as long as file names are unchanged.
 
@@ -31,14 +33,14 @@ Polymorph Self
 
 Shapechange
 - Giant Troll Strength changed from 18 to 18/00 to match description
-- Water Elemental weapon damage changed from 1d8 to 4d8 to match Druid form
+- Water Elemental weapon damage changed from 1d8 to 4d8 (same as Druid form)
 
 Text edits:
-- all Shapechange forms (consistent layouts and accurate stats)
+- all Shapechange forms given consistent layouts and accurate stats
 
 Psionic Blast
-- added missing description for v2.5
-- uses the IWDEE v2.6 version as a base, with a few changes:
+- added missing description in v2.5 (when right-clicking the icon)
+- uses the v2.6 version as a base, with a few changes:
 1. Stun duration changed to 5 rounds (from 10) to match description
 2. Ability regenerates when used (this just skips the extra step of needing to re-shapechange into a Mind Flayer if you wanted to use Psionic Blast more than once)
 3. Added back the orb animation over a stunned creature
@@ -53,7 +55,7 @@ Russian translation: yota13
 
 Tools and Resources used:
 - WeiDU v249 https://github.com/WeiDUorg/weidu
-- NearInfinity v2.2-20210501 https://github.com/Argent77/NearInfinity
+- NearInfinity v2.2-20211218 https://github.com/Argent77/NearInfinity
 - Notepad++ https://notepad-plus-plus.org/
 - Git Bash https://git-scm.com/downloads
 - Infinity Auto Packager https://github.com/InfinityTools/InfinityAutoPackager
@@ -63,6 +65,9 @@ Tools and Resources used:
 ==================================================
 VERSION HISTORY
 ==================================================
+v1.9
+- added a fix for Crippling Strike being capped at -7 (in both IWD:EE v2.5 and v2.6.6). The Record screen and dialogue box could show lower numbers, but the effect never went past -7.
+
 v1.8
 - added Russian translation by yota13 from https://arcanecoast.ru/
 
