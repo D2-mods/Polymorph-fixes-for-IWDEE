@@ -1,6 +1,6 @@
 # Polymorph (and other) fixes for IWD:EE
 Download: https://github.com/D2-mods/Polymorph-fixes-for-IWDEE/releases  
-Installs on: IWD:EE (tested on v2.5 and v2.6)
+Installs on: IWD:EE (tested on v2.5 and v2.6)  
 Languages: English, Russian (yota13)
 
 
