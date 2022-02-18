@@ -65,6 +65,9 @@ Tools and Resources used:
 ==================================================
 VERSION HISTORY
 ==================================================
+v1.9.1
+- Minor update. Just adds some additional checks for installing the Crippling Strike component.
+
 v1.9
 - added a fix for Crippling Strike being capped at -7 (in both IWD:EE v2.5 and v2.6.6). The Record screen and dialogue box could show lower numbers, but the effect never went past -7.
 

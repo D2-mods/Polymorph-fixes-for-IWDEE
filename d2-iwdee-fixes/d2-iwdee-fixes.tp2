@@ -1,6 +1,6 @@
 BACKUP ~d2-iwdee-fixes/backup~
 AUTHOR ~Dan_P~
-VERSION ~1.9~
+VERSION ~1.9.1~
 
 ALWAYS
   INCLUDE ~%MOD_FOLDER%/lib/d2_movement_effects.tpa~
@@ -82,7 +82,10 @@ INCLUDE ~%MOD_FOLDER%/install/fasterdruids0.tph~
 
 BEGIN @13
 REQUIRE_PREDICATE GAME_IS ~iwdee~ @2
-REQUIRE_PREDICATE !(MOD_IS_INSTALLED ~d2-modfixes.tp2~ 99) @52
+REQUIRE_PREDICATE (!(MOD_IS_INSTALLED ~d2-modfixes.tp2~ (ID_OF_LABEL ~d2-modfixes.tp2~ ~D2-TWEAKS-CRIPPSTR16~)) AND
+                   !(MOD_IS_INSTALLED ~d2-script.tp2~ (ID_OF_LABEL ~d2-script.tp2~ ~D2-TWEAKS-CRIPPSTR6~)) AND
+                   !(MOD_IS_INSTALLED ~d2-script.tp2~ (ID_OF_LABEL ~d2-script.tp2~ ~D2-TWEAKS-CRIPPSTR30~)) AND
+                   !(MOD_IS_INSTALLED ~d2-script.tp2~ (ID_OF_LABEL ~d2-script.tp2~ ~D2-TWEAKS-CRIPPSTR16~))) @52
 LABEL ~D2-TWEAKS-CRIPPSTR16~
 INCLUDE ~%MOD_FOLDER%/install/crippstr16.tph~
 
