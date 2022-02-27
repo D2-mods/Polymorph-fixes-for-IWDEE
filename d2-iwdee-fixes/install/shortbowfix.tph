@@ -1,0 +1,19 @@
+COPY_EXISTING_REGEXP GLOB ~.*.itm~ override
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN    // skip files smaller than .ITM
+    READ_BYTE 0x31 prof    // checks weapon proficiency
+    PATCH_IF (prof = 105) BEGIN    //shortbow prof (should cover most mods that combine profs)
+      READ_SHORT 0x80 range    // checks launcher range
+      PATCH_IF (range = 75) BEGIN    // patch if 75 range (standard for shortbows)
+        WRITE_ASCII 0x22 ~BS~ #2    // BS = shortbow appearance
+        WRITE_ASCII 0x44 ~GBOW02~ #8    // change ground icon
+      END
+    END
+  END
+BUT_ONLY
+
+ACTION_IF (FILE_EXISTS_IN_GAME ~storm.itm~) BEGIN    // patch Storm Bow (non-standard range value)
+  COPY_EXISTING ~storm.itm~ ~override~
+    WRITE_ASCII 0x22 ~BS~ #2    // BS = shortbow appearance
+    WRITE_ASCII 0x44 ~GBOW02~ #8    // change ground icon
+  BUT_ONLY
+END

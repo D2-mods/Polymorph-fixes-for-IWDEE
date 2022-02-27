@@ -13,7 +13,7 @@ This is a small fix/tweak mod for IWD:EE, mainly dealing with polymorph-related 
 ==================================================
 INSTALL INFO
 ==================================================
-Extract to game folder and run the setup to install or uninstall. I'm not familiar with Mac/Linux, but installing should be the same as other mods (mod packages are cross-platform). The main fixes component assumes that you are using vanilla Shapechange forms, so by its nature, it will conflict with any mod that alters these forms.
+Extract to game folder and run the setup to install or uninstall. I'm not familiar with Mac/Linux, but installing should be the same as other mods (mod packages are cross-platform).
 
 Components:
 1. Polymorph fixes for IWD:EE
@@ -21,8 +21,10 @@ Components:
 3. Make movement rate bonuses of polymorph forms more consistent
 4. Increase movement speed of Winter Wolf and Polar Bear forms
 5. Uncap Crippling Strike (capped at -7 in v2.5 and v2.6.6)
+6. Patch shortbows to use shortbow visuals (as in classic IWD)
 
-All components can be installed independently and in any order. The movement rate tweaks should be compatible with anything, as long as file names are unchanged.
+All components can be installed independently and in any order.
+The main fixes component assumes you are using vanilla Shapechange forms. Should still be safe to install before revision or overhaul mods (ex. Improved HoF mod).
 
 
 ==================================================
@@ -65,8 +67,11 @@ Tools and Resources used:
 ==================================================
 VERSION HISTORY
 ==================================================
+v1.9.2
+- Patch shortbows to use shortbow visuals (as in classic IWD)
+
 v1.9.1
-- Minor update. Just adds some additional checks for installing the Crippling Strike component.
+- Minor update. Adds some additional checks for installing the Crippling Strike component.
 
 v1.9
 - added a fix for Crippling Strike being capped at -7 (in both IWD:EE v2.5 and v2.6.6). The Record screen and dialogue box could show lower numbers, but the effect never went past -7.
