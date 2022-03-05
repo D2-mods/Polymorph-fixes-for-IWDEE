@@ -4,7 +4,7 @@ Installs on: IWD:EE (tested on v2.5 and v2.6)
 Languages: English, Russian (yota13)
 
 
-#### Components (v1.9):
+#### Components (v1.9.2):
 1. Polymorph fixes for IWD:EE
 2. Patch for nymph.BCS (fixes crash with EEex)
 3. Make movement rate bonuses of polymorph forms more consistent

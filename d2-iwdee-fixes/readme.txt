@@ -68,7 +68,7 @@ Tools and Resources used:
 VERSION HISTORY
 ==================================================
 v1.9.2
-- Patch shortbows to use shortbow visuals (as in classic IWD)
+- added a patch for shortbows to use shortbow visuals (as in classic IWD)
 
 v1.9.1
 - Minor update. Adds some additional checks for installing the Crippling Strike component.
