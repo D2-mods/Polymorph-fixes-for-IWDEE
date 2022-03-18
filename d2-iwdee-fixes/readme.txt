@@ -67,6 +67,9 @@ Tools and Resources used:
 ==================================================
 VERSION HISTORY
 ==================================================
+v1.9.3
+- improved the shortbow patch
+
 v1.9.2
 - added a patch for shortbows to use shortbow visuals (as in classic IWD)
 
