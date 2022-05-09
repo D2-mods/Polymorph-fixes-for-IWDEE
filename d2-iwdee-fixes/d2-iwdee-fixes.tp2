@@ -1,6 +1,6 @@
 BACKUP ~d2-iwdee-fixes/backup~
 AUTHOR ~Dan_P~
-VERSION ~1.9.3~
+VERSION ~1.9.4~
 
 ALWAYS
   INCLUDE ~%MOD_FOLDER%/lib/d2_movement_effects.tpa~
@@ -97,6 +97,15 @@ BEGIN @14
 REQUIRE_PREDICATE GAME_IS ~iwdee~ @2
 LABEL ~D2-IWDEE-SHORTBOWFIX~
 INCLUDE ~%MOD_FOLDER%/install/shortbowfix.tph~
+
+////////////////////////////////////////////////////////////
+
+//Object.ids - Fix typos and add missing lines
+
+BEGIN @15
+REQUIRE_PREDICATE GAME_IS ~iwdee~ @2
+LABEL ~D2-IWDEE-IDSOBJECTFIX~
+INCLUDE ~%MOD_FOLDER%/install/idsobjectfix.tph~
 
 ////////////////////////////////////////////////////////////
 

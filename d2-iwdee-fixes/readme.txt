@@ -7,7 +7,7 @@ Languages: English, Russian (yota13)
 ==================================================
 WHAT THIS MOD DOES
 ==================================================
-This is a small fix/tweak mod for IWD:EE, mainly dealing with polymorph-related things.
+This is a small fix/tweak mod for IWD:EE, mainly dealing with polymorph-related things. The other components are fixes for random stuff I noticed.
 
 
 ==================================================
@@ -22,9 +22,12 @@ Components:
 4. Increase movement speed of Winter Wolf and Polar Bear forms
 5. Uncap Crippling Strike (capped at -7 in v2.5 and v2.6.6)
 6. Patch shortbows to use shortbow visuals (as in classic IWD)
+7. Object.ids - Fix typos and add missing lines
 
-All components can be installed independently and in any order.
-The main fixes component assumes you are using vanilla Shapechange forms. Should still be safe to install before revision or overhaul mods (ex. Improved HoF mod).
+Additional info:
+- All components can be installed independently and in any order.
+- Component 1 assumes you are using vanilla Shapechange forms. Install before mods that change creature stats (ex. Improved HoF)
+- Components 3-6 will not conflict with similar components in the Better IWD Pregen mod.
 
 
 ==================================================
@@ -51,22 +54,25 @@ Psionic Blast
 ==================================================
 CREDITS
 ==================================================
-Coding, Testing: Dan_P
+Mod Author: Dan_P
 
 Russian translation: yota13
 
 Tools and Resources used:
-- WeiDU v249 https://github.com/WeiDUorg/weidu
-- NearInfinity v2.2-20211218 https://github.com/Argent77/NearInfinity
-- Notepad++ https://notepad-plus-plus.org/
-- Git Bash https://git-scm.com/downloads
-- Infinity Auto Packager https://github.com/InfinityTools/InfinityAutoPackager
-- IESDP https://gibberlings3.github.io/iesdp/index.htm
+- WeiDU (https://github.com/WeiDUorg/weidu)
+- NearInfinity (https://github.com/Argent77/NearInfinity)
+- Notepad++ (https://notepad-plus-plus.org/)
+- Git Bash (https://git-scm.com/downloads)
+- Infinity Auto Packager (https://github.com/InfinityTools/InfinityAutoPackager)
+- IESDP (https://gibberlings3.github.io/iesdp/main.htm)
 
 
 ==================================================
 VERSION HISTORY
 ==================================================
+v1.9.4
+- added component to fix issues with the object.IDS file (typos, missing lines)
+
 v1.9.3
 - improved the shortbow patch
 

@@ -1,0 +1,59 @@
+COPY_EXISTING ~object.ids~ ~override~
+
+//fix typos
+  COUNT_REGEXP_INSTANCES ~EighthNearestEnemyOfType~ lineexists    // check for correct spelling
+  PATCH_IF (lineexists = 0) BEGIN
+    REPLACE_TEXTUALLY ~EigthNearestEnemyOfType~ ~EighthNearestEnemyOfType~    // rename typo if no correct line
+  END
+  ELSE BEGIN
+    REPLACE_TEXTUALLY ~57 EigthNearestEnemyOfType~ ~~    // delete typo if correct line exists
+  END
+  
+  COUNT_REGEXP_INSTANCES ~EighthNearestMyGroupOfType~ lineexists
+  PATCH_IF (lineexists = 0) BEGIN
+    REPLACE_TEXTUALLY ~EigthNearestMyGroupOfType~ ~EighthNearestMyGroupOfType~
+  END
+  ELSE BEGIN
+    REPLACE_TEXTUALLY ~67 EigthNearestMyGroupOfType~ ~~
+  END
+
+//delete blank lines and fix spacing (there's probably a better way than PRETTY_PRINT_2DA to delete a line)  
+  PATCH_IF (lineexists > 0) BEGIN
+    PRETTY_PRINT_2DA
+    REPLACE_TEXTUALLY ~                            ~ ~~
+    REPLACE_TEXTUALLY ~                           ~ ~ ~
+    REPLACE_TEXTUALLY ~                          ~ ~ ~
+    REPLACE_TEXTUALLY ~                         ~ ~ ~
+    REPLACE_TEXTUALLY ~  ~ ~ ~
+  END
+
+//check if lines are missing
+  COUNT_REGEXP_INSTANCES ~TenthFarthestEnemyOf~ idscheck
+  
+BUT_ONLY
+
+
+//add lines if missing (i.e. for IWDEE)
+ACTION_IF (idscheck = 0) BEGIN
+  APPEND ~object.ids~ ~94 LastKilled~
+  APPEND ~object.ids~ ~95 NearestAllyOf~
+  APPEND ~object.ids~ ~96 SecondNearestAllyOf~
+  APPEND ~object.ids~ ~97 ThirdNearestAllyOf~
+  APPEND ~object.ids~ ~98 FourthNearestAllyOf~
+  APPEND ~object.ids~ ~99 FifthNearestAllyOf~
+  APPEND ~object.ids~ ~100 SixthNearestAllyOf~
+  APPEND ~object.ids~ ~101 SeventhNearestAllyOf~
+  APPEND ~object.ids~ ~102 EighthNearestAllyOf~
+  APPEND ~object.ids~ ~103 NinthNearestAllyOf~
+  APPEND ~object.ids~ ~104 TenthNearestAllyOf~
+  APPEND ~object.ids~ ~105 FarthestEnemyOf~
+  APPEND ~object.ids~ ~106 SecondFarthestEnemyOf~
+  APPEND ~object.ids~ ~107 ThirdFarthestEnemyOf~
+  APPEND ~object.ids~ ~108 FourthFarthestEnemyOf~
+  APPEND ~object.ids~ ~109 FifthFarthestEnemyOf~
+  APPEND ~object.ids~ ~110 SixthFarthestEnemyOf~
+  APPEND ~object.ids~ ~111 SeventhFarthestEnemyOf~
+  APPEND ~object.ids~ ~112 EighthFarthestEnemyOf~
+  APPEND ~object.ids~ ~113 NinthFarthestEnemyOf~
+  APPEND ~object.ids~ ~114 TenthFarthestEnemyOf~
+END
