@@ -1,6 +1,6 @@
 BACKUP ~d2-iwdee-fixes/backup~
 AUTHOR ~Dan_P~
-VERSION ~1.9.4~
+VERSION ~2.0~
 
 ALWAYS
   INCLUDE ~%MOD_FOLDER%/lib/d2_movement_effects.tpa~
@@ -106,6 +106,15 @@ BEGIN @15
 REQUIRE_PREDICATE GAME_IS ~iwdee~ @2
 LABEL ~D2-IWDEE-IDSOBJECTFIX~
 INCLUDE ~%MOD_FOLDER%/install/idsobjectfix.tph~
+
+////////////////////////////////////////////////////////////
+
+//Minor AI tweak (enemies and invisible PCs)
+
+BEGIN @16
+REQUIRE_PREDICATE GAME_IS ~iwdee~ @2
+LABEL ~D2-IWDEE-RANDOMWALK~
+INCLUDE ~%MOD_FOLDER%/install/randomwalk.tph~
 
 ////////////////////////////////////////////////////////////
 

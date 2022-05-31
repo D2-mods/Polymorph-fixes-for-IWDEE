@@ -1,0 +1,92 @@
+////////////////////////////////////////////////////////////
+
+COPY_EXISTING_REGEXP ~.*.BCS~ ~override~
+  PATCH_IF !(~%SOURCE_RES%~ STRING_EQUAL_CASE ~ehdamien~) BEGIN    // skip a few scripts
+  PATCH_IF !(~%SOURCE_RES%~ STRING_EQUAL_CASE ~KUARUND1~) BEGIN    // Arundel
+  PATCH_IF !(~%SOURCE_RES%~ STRING_EQUAL_CASE ~LWEMMRH~) BEGIN    // Emmerich
+  PATCH_IF !(~%SOURCE_RES%~ STRING_EQUAL_CASE ~LWWAREW~) BEGIN    // werewolf
+  PATCH_IF !(~%SOURCE_RES%~ STRING_EQUAL_CASE ~EECYCL3~) BEGIN    // cyclops
+  PATCH_IF !(~%SOURCE_RES%~ STRING_EQUAL_CASE ~EEBELHI1~) BEGIN    // boss
+  PATCH_IF !(~%SOURCE_RES%~ STRING_EQUAL_CASE ~D5YXUN~) BEGIN    // boss
+  PATCH_IF !(~%SOURCE_RES%~ STRING_EQUAL_CASE ~D5YXNATK~) BEGIN    // boss mobs
+  PATCH_IF !(~%SOURCE_RES%~ STRING_EQUAL_CASE ~D4ELDG~) BEGIN    // Dragon's Eye level 4
+  PATCH_IF !(~%SOURCE_RES%~ STRING_EQUAL_CASE ~D4INFMOV~) BEGIN    // Dragon's Eye level 4
+  PATCH_IF !(~%SOURCE_RES%~ STRING_EQUAL_CASE ~D4YUMAGE~) BEGIN    // Dragon's Eye level 4
+
+	DECOMPILE_AND_PATCH BEGIN
+      COUNT_REGEXP_INSTANCES ~!See(\[PC\])~ count    // script has line: "!See([PC])"
+      PATCH_IF (count > 0) BEGIN
+        REPLACE_TEXTUALLY ~MoveToObject(Player1)~ ~RandomWalk()~
+      END
+    END
+	
+  END
+  END
+  END
+  END
+  END
+  END
+  END
+  END
+  END
+  END
+  END
+BUT_ONLY
+
+////////////////////////////////////////////////////////////
+
+DEFINE_ACTION_FUNCTION ~d2randomwalk~ STR_VAR script = ~~ BEGIN
+
+  COPY_EXISTING ~%script%.BCS~ ~override~
+    DECOMPILE_AND_PATCH BEGIN
+      COUNT_REGEXP_INSTANCES ~d2randomwalk~ check
+    END	
+	
+  ACTION_IF (check = 0) BEGIN
+    COPY_EXISTING ~%script%.BCS~ ~override~
+      DECOMPILE_AND_PATCH BEGIN
+        REPLACE_TEXTUALLY ~!See(\[PC\])~ ~!GlobalTimerNotExpired("d2randomwalk","LOCALS") !See([PC])~
+        REPLACE_TEXTUALLY ~MoveToObject(Player1)~ ~MoveToObject(Player1) SetGlobalTimer("d2randomwalk","LOCALS",18)~
+      END	
+    BUT_ONLY
+	
+    EXTEND_TOP ~%script%.BCS~ ~.../d2-iwdee-fixes/temp/d2randomwalk.baf~
+  END
+  
+END
+
+<<<<<<<< .../d2-iwdee-fixes/temp/d2randomwalk.baf
+IF
+	ActionListEmpty()
+	GlobalTimerNotExpired("d2randomwalk","LOCALS")
+	!See([PC])
+	Detect([PC])
+THEN
+	RESPONSE #100
+		RandomWalk()
+		SetGlobalTimer("d2randomwalk","LOCALS",18)
+END
+>>>>>>>>
+
+COPY_EXISTING ~D5YXUN.BCS~ ~override~    // remove duplicate "!See()" trigger
+  DECOMPILE_AND_PATCH BEGIN
+    COUNT_REGEXP_INSTANCES ~ActionListEmpty~ var1
+    COUNT_REGEXP_INSTANCES ~!See(\[PC\])~ var2
+    PATCH_IF ((var1 = 1) AND (var2 > 1)) BEGIN
+      REPLACE_TEXTUALLY ~!See(\[PC\])~ ~~
+      REPLACE_TEXTUALLY ~ActionListEmpty()~ ~ActionListEmpty() !See([PC])~
+    END
+  END
+BUT_ONLY
+
+LAF d2randomwalk STR_VAR script = LWEMMRH END
+LAF d2randomwalk STR_VAR script = LWWAREW END
+LAF d2randomwalk STR_VAR script = EECYCL3 END
+LAF d2randomwalk STR_VAR script = EEBELHI1 END
+LAF d2randomwalk STR_VAR script = D5YXUN END
+LAF d2randomwalk STR_VAR script = D5YXNATK END
+LAF d2randomwalk STR_VAR script = D4ELDG END
+LAF d2randomwalk STR_VAR script = D4INFMOV END
+LAF d2randomwalk STR_VAR script = D4YUMAGE END
+
+////////////////////////////////////////////////////////////

@@ -7,7 +7,7 @@ Languages: English, Russian (yota13)
 ==================================================
 WHAT THIS MOD DOES
 ==================================================
-This is a small fix/tweak mod for IWD:EE, mainly dealing with polymorph-related things. The other components are fixes for random stuff I noticed.
+This is a small fix/tweak mod for IWD:EE, mainly dealing with polymorph-related things. The other components are fixes or tweaks for random stuff I noticed.
 
 
 ==================================================
@@ -23,6 +23,7 @@ Components:
 5. Uncap Crippling Strike (capped at -7 in v2.5 and v2.6.6)
 6. Patch shortbows to use shortbow visuals (as in classic IWD)
 7. Object.ids - Fix typos and add missing lines
+8. Minor AI tweak (enemies and invisible PCs)
 
 Additional info:
 - All components can be installed independently and in any order.
@@ -52,6 +53,14 @@ Psionic Blast
 
 
 ==================================================
+Minor AI tweak (enemies and invisible PCs)
+==================================================
+Some enemy groups in the unmodded game will walk to and surround Player1 (first character created) if the entire party is invisible or offscreen. This tweak changes it so that these enemies will instead walk or stand around randomly. For certain battles, enemies will still walk towards the party, but they shouldn't all surround Player1 anymore (preventing them from moving).
+
+NOTE: I've tested this in a few places (ex. Severed Hand), but I haven't done a full playthrough yet. I don't think there should be issues, but I haven't checked every enemy group affected by this component.
+
+
+==================================================
 CREDITS
 ==================================================
 Mod Author: Dan_P
@@ -70,6 +79,15 @@ Tools and Resources used:
 ==================================================
 VERSION HISTORY
 ==================================================
+v2.0
+- added component: Minor AI tweak (enemies and invisible PCs). 
+
+Info:
+Some enemy groups in the unmodded game will walk to and surround Player1 (first character created) if the entire party is invisible or offscreen. This tweak changes it so that these enemies will instead walk or stand around randomly. For certain battles, enemies will still walk towards the party, but they shouldn't all surround Player1 anymore (preventing them from moving).
+
+NOTE: I've tested this in a few places (ex. Severed Hand), but I haven't done a full playthrough yet. I don't think there should be issues, but I haven't checked every enemy group affected by this component.
+
+
 v1.9.4
 - added component to fix issues with the object.IDS file (typos, missing lines)
 

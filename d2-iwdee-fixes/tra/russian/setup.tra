@@ -14,6 +14,7 @@
 @13 = ~Uncap Crippling Strike (capped at -7 in v2.5 and v2.6.6)~
 @14 = ~Patch shortbows to use shortbow visuals (as in classic IWD)~
 @15 = ~Object.ids - Fix typos and add missing lines~
+@16 = ~Minor AI tweak (enemies and invisible PCs)~
 
 
 //WeiDU messages
