@@ -26,19 +26,17 @@ Languages: English, Russian (yota13)
 <details>
   <summary>Polymorph fixes (component 1)</summary>
   
-#### Info:
-  
-Polymorph Self
+#### Polymorph Self
 - removed permanent Haste from Winter Wolf, Boring Beetle, and Polar Bear
 
-Shapechange
+#### Shapechange
 - Giant Troll Strength changed from 18 to 18/00 to match description
 - Water Elemental weapon damage changed from 1d8 to 4d8 (same as Druid form)
 
-Text edits:
+#### Text edits:
 - all Shapechange forms given consistent layouts and accurate stats
 
-Psionic Blast
+#### Psionic Blast
 - added missing description in v2.5 (when right-clicking the icon)
 - uses the v2.6 version as a base, with a few changes:
 1. Stun duration changed to 5 rounds (from 10) to match description

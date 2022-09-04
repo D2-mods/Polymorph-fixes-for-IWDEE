@@ -13,7 +13,7 @@ COPY_EXISTING_REGEXP ~.*.BCS~ ~override~
   PATCH_IF !(~%SOURCE_RES%~ STRING_EQUAL_CASE ~D4INFMOV~) BEGIN    // Dragon's Eye level 4
   PATCH_IF !(~%SOURCE_RES%~ STRING_EQUAL_CASE ~D4YUMAGE~) BEGIN    // Dragon's Eye level 4
 
-	DECOMPILE_AND_PATCH BEGIN
+    DECOMPILE_AND_PATCH BEGIN
       COUNT_REGEXP_INSTANCES ~!See(\[PC\])~ count    // script has line: "!See([PC])"
       PATCH_IF (count > 0) BEGIN
         REPLACE_TEXTUALLY ~MoveToObject(Player1)~ ~RandomWalk()~

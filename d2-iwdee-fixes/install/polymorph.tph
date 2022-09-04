@@ -1,8 +1,11 @@
-ACTION_IF (NOT FILE_EXISTS_IN_GAME ~#EFF_M15.WAV~) BEGIN    // copy WAV to override (taken from v2.6)
+//copy WAV to override (taken from v2.6)
+ACTION_IF !(FILE_EXISTS_IN_GAME ~#EFF_M15.WAV~) BEGIN
   COPY ~%MOD_FOLDER%/data/#EFF_M15.WAV~ ~override~
 END
 
-COPY_EXISTING ~CDPOLYBB.ITM~ ~override~    // patch polymorphs
+
+//patch polymorphs
+COPY_EXISTING ~CDPOLYBB.ITM~ ~override~
   LPF DELETE_EFFECT INT_VAR match_opcode=16 END
 BUT_ONLY
 
@@ -16,9 +19,9 @@ BUT_ONLY
   
 COPY_EXISTING ~CDSHWELE.ITM~ ~override~
   LPF ALTER_ITEM_HEADER 
-  INT_VAR 
-    header_type = 1
-    dicenumber = 4
+    INT_VAR 
+      header_type = 1
+      dicenumber = 4
   END
 BUT_ONLY
   
@@ -29,7 +32,9 @@ COPY_EXISTING ~SHTROLL.CRE~ ~override~
   END 
 BUT_ONLY
 
-COPY_EXISTING ~SPIN974.SPL~ ~override~    // patch Psionic Blast
+
+//patch Psionic Blast
+COPY_EXISTING ~SPIN974.SPL~ ~override~
   LPF ALTER_SPELL_HEADER INT_VAR projectile=414 END
   
   LPF DELETE_EFFECT INT_VAR match_opcode=324 END
@@ -37,90 +42,92 @@ COPY_EXISTING ~SPIN974.SPL~ ~override~    // patch Psionic Blast
   LPF DELETE_EFFECT INT_VAR match_opcode=174 END
   
   LPF ALTER_EFFECT
-  INT_VAR 
-    match_opcode = 45
-    duration = 30
+    INT_VAR 
+      match_opcode = 45
+      duration = 30
   END
   
   LPF ALTER_EFFECT
-  INT_VAR 
-    match_opcode = 142
-    duration = 30
+    INT_VAR 
+      match_opcode = 142
+      duration = 30
   END
 
   LPF ADD_SPELL_EFFECT
-  INT_VAR
-    opcode = 324
-    insert_point = 0
-    target = 2
-    parameter2 = 55
-    timing = 1
-    resist_dispel = 2
-  STR_VAR
-    resource = SPIN974
+    INT_VAR
+      opcode = 324
+      insert_point = 0
+      target = 2
+      parameter2 = 55
+      timing = 1
+      resist_dispel = 2
+    STR_VAR
+      resource = SPIN974
   END
   
   LPF ADD_SPELL_EFFECT
-  INT_VAR
-    opcode = 324
-    insert_point = 1
-    target = 2
-    parameter1 = 124
-    parameter2 = 104
-    timing = 1
-    resist_dispel = 2
-  STR_VAR
-    resource = SPIN974
+    INT_VAR
+      opcode = 324
+      insert_point = 1
+      target = 2
+      parameter1 = 124
+      parameter2 = 104
+      timing = 1
+      resist_dispel = 2
+    STR_VAR
+      resource = SPIN974
   END
   
   LPF ADD_SPELL_EFFECT
-  INT_VAR
-    opcode = 174
-    target = 2
-    timing = 1
-    resist_dispel = 2
-    savingthrow = 1
-  STR_VAR
-    resource = ~#EFF_M15~
+    INT_VAR
+      opcode = 174
+      target = 2
+      timing = 1
+      resist_dispel = 2
+      savingthrow = 1
+    STR_VAR
+      resource = ~#EFF_M15~
   END
     
   LPF ADD_SPELL_EFFECT
-  INT_VAR
-    opcode = 215
-    target = 2
-    parameter2 = 0
-    timing = 1
-    resist_dispel = 2
-    savingthrow = 1
-  STR_VAR
-    resource = PARALH
+    INT_VAR
+      opcode = 215
+      target = 2
+      parameter2 = 0
+      timing = 1
+      resist_dispel = 2
+      savingthrow = 1
+    STR_VAR
+      resource = PARALH
   END
   
   LPF ADD_SPELL_EFFECT
-  INT_VAR
-    opcode = 215
-    target = 2
-    parameter2 = 1
-    timing = 0
-    resist_dispel = 2
-    duration = 30
-    savingthrow = 1
-  STR_VAR
-    resource = SPMINDAT
+    INT_VAR
+      opcode = 215
+      target = 2
+      parameter2 = 1
+      timing = 0
+      resist_dispel = 2
+      duration = 30
+      savingthrow = 1
+    STR_VAR
+      resource = SPMINDAT
   END
       
   LPF ADD_SPELL_EFFECT
-  INT_VAR
-    opcode = 171
-    target = 1
-    timing = 1
-    resist_dispel = 2
-  STR_VAR
-    resource = SPIN974
+    INT_VAR
+      opcode = 171
+      target = 1
+      timing = 1
+      resist_dispel = 2
+    STR_VAR
+      resource = SPIN974
   END
 BUT_ONLY
-  
-COPY_EXISTING ~SPIN198.SPL~ ~override~    // text edits
+
+
+//text edits
+COPY_EXISTING ~SPIN198.SPL~ ~override~
   SAY NAME1 @100
   SAY UNIDENTIFIED_DESC @200
   

@@ -1,6 +1,6 @@
-BACKUP ~d2-iwdee-fixes/backup~
+BACKUP ~weidu_external/backup/d2-iwdee-fixes~
 AUTHOR ~Dan_P~
-VERSION ~2.0~
+VERSION ~2.1~
 
 ALWAYS
   INCLUDE ~%MOD_FOLDER%/lib/d2_movement_effects.tpa~

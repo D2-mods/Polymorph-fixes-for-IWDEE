@@ -63,7 +63,7 @@ NOTE: I've tested this in a few places (ex. Severed Hand), but I haven't done a 
 ==================================================
 CREDITS
 ==================================================
-Mod Author: Dan_P
+Modder: Dan_P
 
 Russian translation: yota13
 
@@ -79,6 +79,9 @@ Tools and Resources used:
 ==================================================
 VERSION HISTORY
 ==================================================
+v2.1
+- changed backup folder to weidu_external
+
 v2.0
 - added component: Minor AI tweak (enemies and invisible PCs). 
 
