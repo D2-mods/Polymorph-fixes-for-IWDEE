@@ -1,25 +1,30 @@
 BACKUP ~weidu_external/backup/d2-iwdee-fixes~
 AUTHOR ~Dan_P~
-VERSION ~2.1~
+VERSION ~2.2~
 
 ALWAYS
   INCLUDE ~%MOD_FOLDER%/lib/d2_movement_effects.tpa~
 END
 
+
 LANGUAGE ~English~ 
          ~english~ 
          ~d2-iwdee-fixes/tra/english/setup.tra~
+         ~d2-iwdee-fixes/tra/english/main.tra~
+
 LANGUAGE ~Russian~ 
          ~russian~ 
          ~d2-iwdee-fixes/tra/russian/setup.tra~
+         ~d2-iwdee-fixes/tra/russian/main.tra~
 
 
 ////////////////////////////////////////////////////////////
 
 //Polymorph fixes for IWD:EE
 
-BEGIN @1
-REQUIRE_PREDICATE GAME_IS ~iwdee~ @2
+BEGIN @40100
+REQUIRE_PREDICATE (GAME_IS ~iwdee~) ~Game not supported~
+REQUIRE_PREDICATE !(FILE_EXISTS ~override/spinhumr.SPL~) @50    // skip if EE Fixpack detected
 LABEL ~D2-IWDEE-POLYMORPH~
 INCLUDE ~%MOD_FOLDER%/install/polymorph.tph~
 
@@ -27,35 +32,36 @@ INCLUDE ~%MOD_FOLDER%/install/polymorph.tph~
 
 //Patch for nymph.BCS (fixes crash with EEex)
 
-BEGIN @4    // add Nymph confusion (as dummy spell)
-REQUIRE_PREDICATE GAME_IS ~iwdee~ @2
-SUBCOMPONENT @3
+BEGIN @40201    // add Nymph confusion (as dummy spell)
+REQUIRE_PREDICATE (GAME_IS ~iwdee~) ~Game not supported~
+REQUIRE_PREDICATE !(FILE_EXISTS ~override/spinhumr.SPL~) @50    // skip if EE Fixpack detected
+REQUIRE_PREDICATE !(FILE_EXISTS ~override/d2cwb0.BCS~) @50      // skip if Better IWD Pregen detected
+SUBCOMPONENT @40200
 LABEL ~D2-IWDEE-NYMPHFIX1~
-FORBID_FILE ~override/d2cwb0.BCS~ @50    // check for Better IWD Pregen (patches will be skipped)
 INCLUDE ~%MOD_FOLDER%/install/nymphfix1.tph~
 
-BEGIN @5    // remove check for SPIN704
-SUBCOMPONENT @3
+BEGIN @40202    // remove check for SPIN704
+SUBCOMPONENT @40200
 LABEL ~D2-IWDEE-NYMPHFIX2~
 INCLUDE ~%MOD_FOLDER%/install/nymphfix2.tph~
 
-BEGIN @6    // cast Cleric confusion
-SUBCOMPONENT @3
+BEGIN @40203    // cast Cleric confusion
+SUBCOMPONENT @40200
 LABEL ~D2-IWDEE-NYMPHFIX3~
 INCLUDE ~%MOD_FOLDER%/install/nymphfix3.tph~
 
 ////////////////////////////////////////////////////////////
 
-//Make movement rate bonuses of polymorph forms more consistent
+//Should shapeshift movement bonuses bypass Free Action?
 
-BEGIN @8    // Movement bonuses bypass Free Action
-REQUIRE_PREDICATE GAME_IS ~iwdee~ @2
-SUBCOMPONENT @7
+BEGIN @40301    // Movement bonuses bypass Free Action
+REQUIRE_PREDICATE (GAME_IS ~iwdee~) ~Game not supported~
+SUBCOMPONENT @40300
 LABEL ~D2-IWDEE-MOVEBONUS1~
 INCLUDE ~%MOD_FOLDER%/install/movebonus1.tph~
 
-BEGIN @9    // Movement bonuses are blocked by Free Action
-SUBCOMPONENT @7
+BEGIN @40302    // Movement bonuses are blocked by Free Action
+SUBCOMPONENT @40300
 LABEL ~D2-IWDEE-MOVEBONUS0~
 INCLUDE ~%MOD_FOLDER%/install/movebonus0.tph~
 
@@ -63,38 +69,37 @@ INCLUDE ~%MOD_FOLDER%/install/movebonus0.tph~
 
 //Increase movement speed of Winter Wolf and Polar Bear forms
 
-BEGIN @11    // for Druids and Polymorph Self
-REQUIRE_PREDICATE GAME_IS ~iwdee~ @2
-SUBCOMPONENT @10
+BEGIN @40401    // for Druids and Polymorph Self
+REQUIRE_PREDICATE (GAME_IS ~iwdee~) ~Game not supported~
+SUBCOMPONENT @40400
 LABEL ~D2-IWDEE-FASTERDRUIDS1~
 INCLUDE ~%MOD_FOLDER%/install/fasterdruids1.tph~
 
-BEGIN @12    // for Druids only
-SUBCOMPONENT @10
+BEGIN @40402    // for Druids only
+SUBCOMPONENT @40400
 LABEL ~D2-IWDEE-FASTERDRUIDS0~
 INCLUDE ~%MOD_FOLDER%/install/fasterdruids0.tph~
 
 ////////////////////////////////////////////////////////////
 
 //Uncap Crippling Strike (capped at -7 in IWD:EE v2.5 and v2.6.6)
-//allows Crippling Strike to scale to -16 (Assassin at level 50)
-//does not extend tables (main purpose is to allow Assassins to actually reach -10)
+//Allows Assassins to reach -10, as per the kit description
 
-BEGIN @13
-REQUIRE_PREDICATE GAME_IS ~iwdee~ @2
-REQUIRE_PREDICATE (!(MOD_IS_INSTALLED ~d2-modfixes.tp2~ (ID_OF_LABEL ~d2-modfixes.tp2~ ~D2-TWEAKS-CRIPPSTR16~)) AND
-                   !(MOD_IS_INSTALLED ~d2-script.tp2~ (ID_OF_LABEL ~d2-script.tp2~ ~D2-TWEAKS-CRIPPSTR6~)) AND
+BEGIN @40500
+REQUIRE_PREDICATE (GAME_IS ~iwdee~) ~Game not supported~
+REQUIRE_PREDICATE !(FILE_EXISTS ~override/spinhumr.SPL~) @50    // skip if EE Fixpack detected
+REQUIRE_PREDICATE (!(MOD_IS_INSTALLED ~d2-script.tp2~ (ID_OF_LABEL ~d2-script.tp2~ ~D2-TWEAKS-CRIPPSTR6~)) AND
                    !(MOD_IS_INSTALLED ~d2-script.tp2~ (ID_OF_LABEL ~d2-script.tp2~ ~D2-TWEAKS-CRIPPSTR30~)) AND
-                   !(MOD_IS_INSTALLED ~d2-script.tp2~ (ID_OF_LABEL ~d2-script.tp2~ ~D2-TWEAKS-CRIPPSTR16~))) @52
-LABEL ~D2-TWEAKS-CRIPPSTR16~
+                   !(MOD_IS_INSTALLED ~d2-script.tp2~ (ID_OF_LABEL ~d2-script.tp2~ ~D2-TWEAKS-CRIPPSTR16~))) @50
+LABEL ~D2-IWDEE-CRIPPSTR16~
 INCLUDE ~%MOD_FOLDER%/install/crippstr16.tph~
 
 ////////////////////////////////////////////////////////////
 
 //Patch shortbows to use shortbow graphics (as in classic IWD)
 
-BEGIN @14
-REQUIRE_PREDICATE GAME_IS ~iwdee~ @2
+BEGIN @40600
+REQUIRE_PREDICATE (GAME_IS ~iwdee~) ~Game not supported~
 LABEL ~D2-IWDEE-SHORTBOWFIX~
 INCLUDE ~%MOD_FOLDER%/install/shortbowfix.tph~
 
@@ -102,8 +107,9 @@ INCLUDE ~%MOD_FOLDER%/install/shortbowfix.tph~
 
 //Object.ids - Fix typos and add missing lines
 
-BEGIN @15
-REQUIRE_PREDICATE GAME_IS ~iwdee~ @2
+BEGIN @40700
+REQUIRE_PREDICATE (GAME_IS ~iwdee~) ~Game not supported~
+REQUIRE_PREDICATE !(FILE_EXISTS ~override/spinhumr.SPL~) @50    // skip if EE Fixpack detected
 LABEL ~D2-IWDEE-IDSOBJECTFIX~
 INCLUDE ~%MOD_FOLDER%/install/idsobjectfix.tph~
 
@@ -111,17 +117,13 @@ INCLUDE ~%MOD_FOLDER%/install/idsobjectfix.tph~
 
 //Minor AI tweak (enemies and invisible PCs)
 
-BEGIN @16
-REQUIRE_PREDICATE GAME_IS ~iwdee~ @2
+BEGIN @40800
+REQUIRE_PREDICATE (GAME_IS ~iwdee~) ~Game not supported~
 LABEL ~D2-IWDEE-RANDOMWALK~
 INCLUDE ~%MOD_FOLDER%/install/randomwalk.tph~
 
 ////////////////////////////////////////////////////////////
 
 
-
-
 /*
-
-
 */

@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////
 
-COPY_EXISTING_REGEXP ~.*.BCS~ ~override~
+COPY_EXISTING_REGEXP ~.*\.BCS~ ~override~
   PATCH_IF !(~%SOURCE_RES%~ STRING_EQUAL_CASE ~ehdamien~) BEGIN    // skip a few scripts
   PATCH_IF !(~%SOURCE_RES%~ STRING_EQUAL_CASE ~KUARUND1~) BEGIN    // Arundel
   PATCH_IF !(~%SOURCE_RES%~ STRING_EQUAL_CASE ~LWEMMRH~) BEGIN    // Emmerich

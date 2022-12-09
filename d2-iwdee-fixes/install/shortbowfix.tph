@@ -1,6 +1,9 @@
-ACTION_IF (GAME_IS ~iwdee~) BEGIN
+/*
+Patch shortbows to use shortbow graphics (as in classic IWD)
+*/
 
-COPY_EXISTING_REGEXP GLOB ~.*.itm~ override
+
+COPY_EXISTING_REGEXP GLOB ~.*\.itm~ override
   PATCH_IF (SOURCE_SIZE > 0x71) BEGIN    // skip if not a valid .ITM
   PATCH_IF !(~%SOURCE_RES%~ STRING_EQUAL_CASE ~GODBOW~) BEGIN    // skip if Godbow
   
@@ -25,5 +28,3 @@ COPY_EXISTING_REGEXP GLOB ~.*.itm~ override
   END
   END
 BUT_ONLY
-
-END

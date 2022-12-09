@@ -1,9 +1,9 @@
-COPY_EXISTING_REGEXP ~ply.*.itm~ ~override~
+COPY_EXISTING_REGEXP ~ply.*\.itm~ ~override~
   LPF ALTER_EFFECT INT_VAR silent=1 match_opcode=176 opcode=126 END
   LPF ALTER_EFFECT INT_VAR silent=1 match_opcode=126 parameter2=5 END
 BUT_ONLY
 
-COPY_EXISTING_REGEXP ~cdpoly.*.itm~ ~override~
+COPY_EXISTING_REGEXP ~cdpoly.*\.itm~ ~override~
   LPF ALTER_EFFECT INT_VAR silent=1 match_opcode=176 opcode=126 END
   LPF ALTER_EFFECT INT_VAR silent=1 match_opcode=126 parameter2=5 END
 BUT_ONLY

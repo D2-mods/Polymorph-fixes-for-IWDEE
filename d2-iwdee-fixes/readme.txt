@@ -18,7 +18,7 @@ Extract to game folder and run the setup to install or uninstall. I'm not famili
 Components:
 1. Polymorph fixes for IWD:EE
 2. Patch for nymph.BCS (fixes crash with EEex)
-3. Make movement rate bonuses of polymorph forms more consistent
+3. Should shapeshift movement bonuses bypass Free Action?
 4. Increase movement speed of Winter Wolf and Polar Bear forms
 5. Uncap Crippling Strike (capped at -7 in v2.5 and v2.6.6)
 6. Patch shortbows to use shortbow visuals (as in classic IWD)
@@ -34,30 +34,34 @@ Additional info:
 ==================================================
 Polymorph fixes (component 1)
 ==================================================
+NOTE: Skipped if EE Fixpack is installed.
+
 Polymorph Self
-- removed permanent Haste from Winter Wolf, Boring Beetle, and Polar Bear
+- Removed permanent Haste from Winter Wolf, Boring Beetle, and Polar Bear
 
 Shapechange
 - Giant Troll Strength changed from 18 to 18/00 to match description
 - Water Elemental weapon damage changed from 1d8 to 4d8 (same as Druid form)
 
-Text edits:
-- all Shapechange forms given consistent layouts and accurate stats
+Text edits (Shapechange):
+- Consistent layouts and accurate stats
 
 Psionic Blast
-- added missing description in v2.5 (when right-clicking the icon)
-- uses the v2.6 version as a base, with a few changes:
-1. Stun duration changed to 5 rounds (from 10) to match description
-2. Ability regenerates when used (this just skips the extra step of needing to re-shapechange into a Mind Flayer if you wanted to use Psionic Blast more than once)
-3. Added back the orb animation over a stunned creature
+- Added missing description in v2.5 (when right-clicking the icon)
+- Uses the v2.6 version as a base, with a few changes:
+	1. Stun duration changed to 5 rounds (from 10) to match description
+	2. Ability regenerates when used
+	3. Added back the orb animation over a stunned creature
 
 
 ==================================================
 Minor AI tweak (enemies and invisible PCs)
 ==================================================
-Some enemy groups in the unmodded game will walk to and surround Player1 (first character created) if the entire party is invisible or offscreen. This tweak changes it so that these enemies will instead walk or stand around randomly. For certain battles, enemies will still walk towards the party, but they shouldn't all surround Player1 anymore (preventing them from moving).
+Some enemy groups in the unmodded game will walk to and surround Player1 (first character created) if the entire party is invisible or offscreen. This prevents Player1 from moving.
 
-NOTE: I've tested this in a few places (ex. Severed Hand), but I haven't done a full playthrough yet. I don't think there should be issues, but I haven't checked every enemy group affected by this component.
+This tweak changes it so that these enemies will instead walk or stand around randomly. For certain battles, enemies will still walk towards the party, but they won't surround Player1 anymore.
+
+This will only patch official scripts included with the game.
 
 
 ==================================================
@@ -79,6 +83,16 @@ Tools and Resources used:
 ==================================================
 VERSION HISTORY
 ==================================================
+v2.2
+- Skips the following components if EE Fixpack is installed:
+	- Polymorph fixes
+	- Patch for nymph.BCS
+	- Uncap Crippling Strike
+	- Object.ids fixes
+- The current EE Fixpack repo already includes these in some form.
+- Cleaned up possible harmless weidu warning messages.
+- Slightly reorganized TRA files.
+
 v2.1
 - changed backup folder to weidu_external
 
