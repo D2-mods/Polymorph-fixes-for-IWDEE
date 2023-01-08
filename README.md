@@ -1,6 +1,6 @@
 # Polymorph (and other) fixes for IWD:EE
 Download: https://github.com/D2-mods/Polymorph-fixes-for-IWDEE/releases  
-Compatibility: Tested on IWD:EE v2.5 and v2.6  
+Installs on: IWD:EE (tested on v2.5 and v2.6)
 Languages: English, Russian (yota13)
 
 
@@ -11,7 +11,7 @@ Languages: English, Russian (yota13)
 4. Increase movement speed of Winter Wolf and Polar Bear forms
 5. Uncap Crippling Strike (capped at -7 in v2.5 and v2.6.6)
 6. Patch shortbows to use shortbow visuals (as in classic IWD)
-7. Object.ids - Fix typos and add missing lines
+7. Object.ids - Add identifiers if missing (for scripting)
 8. Minor AI tweak (enemies and invisible PCs)
 
 

@@ -1,6 +1,6 @@
 BACKUP ~weidu_external/backup/d2-iwdee-fixes~
 AUTHOR ~Dan_P~
-VERSION ~2.2~
+VERSION ~2.3~
 
 ALWAYS
   INCLUDE ~%MOD_FOLDER%/lib/d2_movement_effects.tpa~
@@ -105,11 +105,10 @@ INCLUDE ~%MOD_FOLDER%/install/shortbowfix.tph~
 
 ////////////////////////////////////////////////////////////
 
-//Object.ids - Fix typos and add missing lines
+//Object.ids - Add identifiers if missing (for scripting)
 
 BEGIN @40700
 REQUIRE_PREDICATE (GAME_IS ~iwdee~) ~Game not supported~
-REQUIRE_PREDICATE !(FILE_EXISTS ~override/spinhumr.SPL~) @50    // skip if EE Fixpack detected
 LABEL ~D2-IWDEE-IDSOBJECTFIX~
 INCLUDE ~%MOD_FOLDER%/install/idsobjectfix.tph~
 

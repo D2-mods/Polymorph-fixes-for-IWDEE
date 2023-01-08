@@ -22,7 +22,7 @@ Components:
 4. Increase movement speed of Winter Wolf and Polar Bear forms
 5. Uncap Crippling Strike (capped at -7 in v2.5 and v2.6.6)
 6. Patch shortbows to use shortbow visuals (as in classic IWD)
-7. Object.ids - Fix typos and add missing lines
+7. Object.ids - Add identifiers if missing (for scripting)
 8. Minor AI tweak (enemies and invisible PCs)
 
 Additional info:
@@ -83,6 +83,9 @@ Tools and Resources used:
 ==================================================
 VERSION HISTORY
 ==================================================
+v2.3
+- Object.ids patch: This will no longer edit typos. This is in case other mods use the typo versions. Identifiers with corrected spelling will now be added to the bottom of the file instead.
+
 v2.2
 - Skips the following components if EE Fixpack is installed:
 	- Polymorph fixes

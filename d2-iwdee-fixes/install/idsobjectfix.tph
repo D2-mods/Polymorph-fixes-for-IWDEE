@@ -1,40 +1,24 @@
-COPY_EXISTING ~object.ids~ ~override~
+//Add lines to Object.ids
 
-//fix typos
-  COUNT_REGEXP_INSTANCES ~EighthNearestEnemyOfType~ lineexists    // check for correct spelling
-  PATCH_IF (lineexists = 0) BEGIN
-    REPLACE_TEXTUALLY ~EigthNearestEnemyOfType~ ~EighthNearestEnemyOfType~    // rename typo if no correct line
-  END
-  ELSE BEGIN
-    REPLACE_TEXTUALLY ~57 EigthNearestEnemyOfType~ ~~    // delete typo if correct line exists
-  END
-  
-  COUNT_REGEXP_INSTANCES ~EighthNearestMyGroupOfType~ lineexists
-  PATCH_IF (lineexists = 0) BEGIN
-    REPLACE_TEXTUALLY ~EigthNearestMyGroupOfType~ ~EighthNearestMyGroupOfType~
-  END
-  ELSE BEGIN
-    REPLACE_TEXTUALLY ~67 EigthNearestMyGroupOfType~ ~~
-  END
-
-//delete blank lines and fix spacing (there's probably a better way than PRETTY_PRINT_2DA to delete a line)  
-  PATCH_IF (lineexists > 0) BEGIN
-    PRETTY_PRINT_2DA
-    REPLACE_TEXTUALLY ~                            ~ ~~
-    REPLACE_TEXTUALLY ~                           ~ ~ ~
-    REPLACE_TEXTUALLY ~                          ~ ~ ~
-    REPLACE_TEXTUALLY ~                         ~ ~ ~
-    REPLACE_TEXTUALLY ~  ~ ~ ~
-  END
-
-//check if lines are missing
-  COUNT_REGEXP_INSTANCES ~TenthFarthestEnemyOf~ idscheck
-  
-BUT_ONLY
+//Check some stuff
+COPY_EXISTING - ~object.ids~  ~~
+  COUNT_REGEXP_INSTANCES ~EighthNearestEnemyOfType~    check1
+  COUNT_REGEXP_INSTANCES ~EighthNearestMyGroupOfType~  check2
+  COUNT_REGEXP_INSTANCES ~TenthFarthestEnemyOf~        check3
 
 
-//add lines if missing (i.e. for IWDEE)
-ACTION_IF (idscheck = 0) BEGIN
+//Add lines with correct spelling (only if missing)
+ACTION_IF (check1 = 0) BEGIN
+  APPEND ~object.ids~  ~57 EighthNearestEnemyOfType~
+END
+
+ACTION_IF (check2 = 0) BEGIN
+  APPEND ~object.ids~  ~67 EighthNearestMyGroupOfType~
+END
+
+
+//Add lines if missing (i.e. for IWDEE v2.6)
+ACTION_IF (check3 = 0) BEGIN
   APPEND ~object.ids~ ~94 LastKilled~
   APPEND ~object.ids~ ~95 NearestAllyOf~
   APPEND ~object.ids~ ~96 SecondNearestAllyOf~
@@ -57,3 +41,7 @@ ACTION_IF (idscheck = 0) BEGIN
   APPEND ~object.ids~ ~113 NinthFarthestEnemyOf~
   APPEND ~object.ids~ ~114 TenthFarthestEnemyOf~
 END
+
+
+/*
+*/

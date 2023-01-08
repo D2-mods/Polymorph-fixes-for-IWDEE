@@ -16,7 +16,7 @@ Text for weidu installer.
 	@40402 = ~for Druids only~
 @40500 = ~Uncap Crippling Strike (capped at -7 in v2.5 and v2.6.6)~
 @40600 = ~Patch shortbows to use shortbow visuals (as in classic IWD)~
-@40700 = ~Object.ids - Fix typos and add missing lines~
+@40700 = ~Object.ids - Add identifiers if missing (for scripting)~
 @40800 = ~Minor AI tweak (enemies and invisible PCs)~
 
 
