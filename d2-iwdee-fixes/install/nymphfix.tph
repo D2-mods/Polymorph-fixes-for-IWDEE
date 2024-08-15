@@ -1,0 +1,37 @@
+/*
+Patch for nymph.BCS (fixes crash with EEex)
+*/
+
+
+//add Nymph confusion (as dummy spell)
+ACTION_IF (nymphfix = 1) BEGIN
+  COPY_EXISTING - ~SPPR709.spl~  ~%workspace%/nymph.spl~
+  ADD_SPELL ~%workspace%/nymph.spl~ 3 7 NYMPH_CONFUSION    // add to spell.ids
+
+  COPY_EXISTING ~nymph.BCS~ ~override~  DECOMPILE_AND_PATCH BEGIN
+      REPLACE_TEXTUALLY ~3704~ ~NYMPH_CONFUSION~
+    END
+  BUT_ONLY
+END
+
+//
+//remove check for SPIN704
+ACTION_IF (nymphfix = 2) BEGIN
+  COPY_EXISTING ~nymph.BCS~ ~override~  DECOMPILE_AND_PATCH BEGIN
+      REPLACE_TEXTUALLY ~Spell(NearestEnemyOf(Myself),3704)~ ~~
+    END
+  BUT_ONLY
+END
+
+//
+//cast Cleric confusion
+ACTION_IF (nymphfix = 3) BEGIN
+  COPY_EXISTING ~nymph.BCS~ ~override~  DECOMPILE_AND_PATCH BEGIN
+      REPLACE_TEXTUALLY ~3704~ ~CLERIC_CONFUSION~
+    END
+  BUT_ONLY
+END
+
+
+/*
+*/

@@ -1,10 +1,13 @@
 # Polymorph (and other) fixes for IWD:EE
+
 Download: https://github.com/D2-mods/Polymorph-fixes-for-IWDEE/releases  
-Installs on: IWD:EE (tested on v2.5 and v2.6)
 Languages: English, Russian (yota13)
 
+This is a mod for Icewind Dale: Enhanced Edition. Tested with IWDEE v2.5 and v2.6.
 
-#### Components:
+--
+
+### Components:
 1. Polymorph fixes for IWD:EE
 2. Patch for nymph.BCS (fixes crash with EEex)
 3. Should shapeshift movement bonuses bypass Free Action?
@@ -15,13 +18,13 @@ Languages: English, Russian (yota13)
 8. Minor AI tweak (enemies and invisible PCs)
 
 
-#### Install info:
+### Install info:
 - All components can be installed independently and in any order.
-- Component 1 assumes you are using vanilla Shapechange forms. Install before mods that change creature stats (ex. Improved HoF)
-- Components 3-6 will not conflict with similar components in the Better IWD Pregen mod.
+- Component 1 assumes you are using vanilla Shapechange forms. Install before mods that change creature stats (ex. Improved HoF).
+- This mod shares some components with the Better IWD Pregen mod. If similar components are installed, whichever is installed last will be used (no issues or duplicated effects).
 
 
-#### Additional info:
+### Additional info:
 
 <details>
   <summary>Polymorph fixes (component 1)</summary>
@@ -30,22 +33,19 @@ Languages: English, Russian (yota13)
 
 NOTE: Skipped if EE Fixpack is installed.
 
-#### Polymorph Self
-- removed permanent Haste from Winter Wolf, Boring Beetle, and Polar Bear
+**Polymorph Self**
+- Removed permanent Haste from Winter Wolf, Boring Beetle, and Polar Bear.
 
-#### Shapechange
-- Giant Troll Strength changed from 18 to 18/00 to match description
-- Water Elemental weapon damage changed from 1d8 to 4d8 (same as Druid form)
+**Shapechange**
+- Giant Troll Strength changed from 18 to 18/00 to match description.
+- Water Elemental weapon damage changed from 1d8 to 4d8 (same as Druid form).
+- Text edits: Consistent layouts and accurate stats.
 
-#### Text edits (Shapechange):
-- Consistent layouts and accurate stats
-
-#### Psionic Blast
-- Added missing description in v2.5 (when right-clicking the icon)
-- Uses the v2.6 version as a base, with a few changes:
-1. Stun duration changed to 5 rounds (from 10) to match description
-2. Ability regenerates when used
-3. Added back the orb animation over a stunned creature
+**Psionic Blast (mind flayer ability)**
+- Added missing description (for IWDEE v2.5).
+- Stun duration changed to 5 rounds to match description.
+- Can be used at will, while in mind flayer form.
+- The rest of the effects are based on the v2.6 version.
 
 ---
 

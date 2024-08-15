@@ -40,22 +40,20 @@ DEFINE_ACTION_FUNCTION ~d2randomwalk~ STR_VAR script = ~~ BEGIN
   COPY_EXISTING ~%script%.BCS~ ~override~
     DECOMPILE_AND_PATCH BEGIN
       COUNT_REGEXP_INSTANCES ~d2randomwalk~ check
-    END	
-	
-  ACTION_IF (check = 0) BEGIN
-    COPY_EXISTING ~%script%.BCS~ ~override~
-      DECOMPILE_AND_PATCH BEGIN
+      PATCH_IF (check = 0) BEGIN
         REPLACE_TEXTUALLY ~!See(\[PC\])~ ~!GlobalTimerNotExpired("d2randomwalk","LOCALS") !See([PC])~
         REPLACE_TEXTUALLY ~MoveToObject(Player1)~ ~MoveToObject(Player1) SetGlobalTimer("d2randomwalk","LOCALS",18)~
       END	
-    BUT_ONLY
+    END	
+  BUT_ONLY
 	
-    EXTEND_TOP ~%script%.BCS~ ~.../d2-iwdee-fixes/temp/d2randomwalk.baf~
+  ACTION_IF (check = 0) BEGIN	
+    EXTEND_TOP ~%script%.BCS~ ~.../inlined/d2randomwalk.baf~
   END
   
 END
 
-<<<<<<<< .../d2-iwdee-fixes/temp/d2randomwalk.baf
+<<<<<<<< .../inlined/d2randomwalk.baf
 IF
 	ActionListEmpty()
 	GlobalTimerNotExpired("d2randomwalk","LOCALS")

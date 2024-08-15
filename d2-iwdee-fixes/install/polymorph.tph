@@ -1,10 +1,16 @@
-//copy WAV to override (taken from v2.6)
+/*
+Polymorph fixes for IWD:EE
+*/
+
+
+//prep
 ACTION_IF !(FILE_EXISTS_IN_GAME ~#EFF_M15.WAV~) BEGIN
-  COPY ~%MOD_FOLDER%/files/#EFF_M15.WAV~ ~override~
+  COPY ~%files%/#EFF_M15.WAV~ ~override~
 END
 
 
-//patch polymorphs
+//
+//patches for Polymorph Self
 COPY_EXISTING ~CDPOLYBB.ITM~ ~override~
   LPF DELETE_EFFECT INT_VAR match_opcode=16 END
 BUT_ONLY
@@ -12,15 +18,21 @@ BUT_ONLY
 COPY_EXISTING ~CDPOLYPB.ITM~ ~override~
   LPF DELETE_EFFECT INT_VAR match_opcode=16 END
 BUT_ONLY
-  
+
 COPY_EXISTING ~CDPOLYWW.ITM~ ~override~
   LPF DELETE_EFFECT INT_VAR match_opcode=16 END
 BUT_ONLY
-  
+
+
+//
+//patches for Shapechange
+
+//water elemental damage
 COPY_EXISTING ~CDSHWELE.ITM~ ~override~
   LPF ALTER_ITEM_HEADER INT_VAR header_type=1 dicenumber=4 END
 BUT_ONLY
-  
+
+//giant troll STR
 COPY_EXISTING ~SHTROLL.CRE~ ~override~
   PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
     WRITE_BYTE 0x238 18
@@ -31,85 +43,29 @@ BUT_ONLY
 
 //patch Psionic Blast
 COPY_EXISTING ~SPIN974.SPL~ ~override~
-  LPF ALTER_SPELL_HEADER INT_VAR projectile=414 END
 
-  LPF DELETE_EFFECT INT_VAR match_opcode=324 END
-  LPF DELETE_EFFECT INT_VAR match_opcode=215 END
+  // prep
+  LPF ALTER_SPELL_HEADER INT_VAR projectile=414 END    // default projectile for EE v2.6 (area cone)
+  LPF DELETE_EFFECT INT_VAR match_opcode=324 END    // delete and re-add (in case of inconsistencies between game versions)
   LPF DELETE_EFFECT INT_VAR match_opcode=174 END
+  LPF DELETE_EFFECT INT_VAR match_opcode=215 END
+  LPF ALTER_EFFECT INT_VAR silent=1 match_duration=60 duration=30 END
 
-  LPF ALTER_EFFECT INT_VAR match_opcode=45 duration=30 END
-  LPF ALTER_EFFECT INT_VAR match_opcode=142 duration=30 END
+  // racial protections
+  LPF d2_protect_on_castequip INT_VAR opcode=324 cre_type=55 duration=100 STR_VAR insert=first END
+  LPF CLONE_EFFECT INT_VAR match_opcode=324 parameter1=124 parameter2=104 STR_VAR insert=below END
 
-  LPF ADD_SPELL_EFFECT
-    INT_VAR
-      opcode         = 324
-      insert_point   = 0
-      target         = 2
-      parameter2     = 55
-      timing         = 1
-      resist_dispel  = 2
-    STR_VAR
-      resource       = ~SPIN974~
-  END
-  
-  LPF ADD_SPELL_EFFECT
-    INT_VAR
-      opcode         = 324
-      insert_point   = 1
-      target         = 2
-      parameter1     = 124
-      parameter2     = 104
-      timing         = 1
-      resist_dispel  = 2
-    STR_VAR
-      resource       = ~SPIN974~
-  END
-  
-  LPF ADD_SPELL_EFFECT
-    INT_VAR
-      opcode         = 174
-      target         = 2
-      timing         = 1
-      resist_dispel  = 2
-      savingthrow    = 1
-    STR_VAR
-      resource       = ~#EFF_M15~
-  END
-    
-  LPF ADD_SPELL_EFFECT
-    INT_VAR
-      opcode         = 215
-      target         = 2
-      parameter2     = 0
-      timing         = 1
-      resist_dispel  = 2
-      savingthrow    = 1
-    STR_VAR
-      resource       = ~PARALH~
-  END
-  
-  LPF ADD_SPELL_EFFECT
-    INT_VAR
-      opcode         = 215
-      target         = 2
-      parameter2     = 1
-      timing         = 0
-      resist_dispel  = 2
-      duration       = 30
-      savingthrow    = 1
-    STR_VAR
-      resource       = ~SPMINDAT~
-  END
-      
-  LPF ADD_SPELL_EFFECT
-    INT_VAR
-      opcode         = 171
-      target         = 1
-      timing         = 1
-      resist_dispel  = 2
-    STR_VAR
-      resource       = ~SPIN974~
-  END
+  // visuals
+  LPF ADD_SPELL_EFFECT INT_VAR opcode=174 target=2 timing=1 resist_dispel=2 savingthrow=1 STR_VAR resource=~#EFF_M15~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode=215 target=2 parameter2=0 timing=1 resist_dispel=2 savingthrow=1 STR_VAR resource=PARALH END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode=215 target=2 parameter2=1 timing=0 duration=2 resist_dispel=2 savingthrow=1 STR_VAR resource=SPMINDAT END
+
+  // regenerate ability
+  LPF DELETE_EFFECT INT_VAR match_opcode=171 STR_VAR match_resource=SPIN974 END
+  LPF DELETE_EFFECT INT_VAR match_opcode=172 STR_VAR match_resource=SPIN974 END
+  LPF ADD_SPELL_CFEFFECT INT_VAR opcode=171 target=1 timing=1 resist_dispel=2 STR_VAR resource=SPIN974 END
+  LPF ADD_SPELL_CFEFFECT INT_VAR opcode=172 target=1 timing=1 resist_dispel=2 STR_VAR resource=SPIN974 END
+
 BUT_ONLY
 
 
@@ -153,3 +109,7 @@ COPY_EXISTING ~SPWI497.SPL~ ~override~
 COPY_EXISTING ~SPWI498.SPL~ ~override~
   SAY NAME1 @121
   SAY UNIDENTIFIED_DESC @221
+
+
+//
+//

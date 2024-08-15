@@ -1,0 +1,31 @@
+//patch Free Action (block "stunned" string)
+//
+
+
+/*
+unmodded IWDEE uses more than one "stunned" string
+only one is blocked by Free Action (Chaotic Commands also only blocks one)
+*/
+
+
+PRINT @51
+
+ACTION_FOR_EACH spell IN ~SPPR508~ ~SPPR403~ BEGIN
+  COPY_EXISTING ~%spell%.SPL~  ~override~
+    READ_STRREF 0x8 spellitem
+    PATCH_PRINT @52
+    LPF d2_string_immunities INT_VAR move=1 mind=1 END
+  IF_EXISTS BUT_ONLY
+END
+
+ACTION_FOR_EACH item IN ~RING09~ ~FREEACT~ ~CIGBARD~ BEGIN
+  COPY_EXISTING ~%item%.ITM~  ~override~
+    READ_STRREF 0xc spellitem
+    PATCH_PRINT @52
+    LPF d2_string_immunities INT_VAR move=1 END
+  IF_EXISTS BUT_ONLY
+END
+
+
+//
+//

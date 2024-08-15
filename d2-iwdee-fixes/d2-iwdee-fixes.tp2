@@ -1,9 +1,20 @@
 BACKUP ~weidu_external/backup/d2-iwdee-fixes~
 AUTHOR ~Dan_P~
-VERSION ~2.3~
+VERSION ~2.4~
+AUTO_EVAL_STRINGS
 
 ALWAYS
-  INCLUDE ~%MOD_FOLDER%/lib/d2_movement_effects.tpa~
+
+  CLEAR_INLINED
+
+  ACTION_BASH_FOR ~%MOD_FOLDER%/lib~ ~.*\.tpa~ BEGIN    // function list
+    INCLUDE ~%BASH_FOR_FILESPEC%~
+  END
+
+  OUTER_TEXT_SPRINT install    ~%MOD_FOLDER%/install~    // folder variables
+  OUTER_TEXT_SPRINT files      ~%MOD_FOLDER%/files~
+  OUTER_TEXT_SPRINT workspace  ~weidu_external/Workspace~
+
 END
 
 
@@ -26,7 +37,8 @@ BEGIN @40100
 REQUIRE_PREDICATE (GAME_IS ~iwdee~) ~Game not supported~
 REQUIRE_PREDICATE !(FILE_EXISTS ~override/spinhumr.SPL~) @50    // skip if EE Fixpack detected
 LABEL ~D2-IWDEE-POLYMORPH~
-INCLUDE ~%MOD_FOLDER%/install/polymorph.tph~
+INCLUDE ~%install%/polymorph.tph~
+INCLUDE ~%install%/freeactionpatch.tph~
 
 ////////////////////////////////////////////////////////////
 
@@ -38,32 +50,37 @@ REQUIRE_PREDICATE !(FILE_EXISTS ~override/spinhumr.SPL~) @50    // skip if EE Fi
 REQUIRE_PREDICATE !(FILE_EXISTS ~override/d2cwb0.BCS~) @50      // skip if Better IWD Pregen detected
 SUBCOMPONENT @40200
 LABEL ~D2-IWDEE-NYMPHFIX1~
-INCLUDE ~%MOD_FOLDER%/install/nymphfix1.tph~
+OUTER_SET nymphfix = 1
+INCLUDE ~%install%/nymphfix.tph~
 
 BEGIN @40202    // remove check for SPIN704
 SUBCOMPONENT @40200
 LABEL ~D2-IWDEE-NYMPHFIX2~
-INCLUDE ~%MOD_FOLDER%/install/nymphfix2.tph~
+OUTER_SET nymphfix = 2
+INCLUDE ~%install%/nymphfix.tph~
 
 BEGIN @40203    // cast Cleric confusion
 SUBCOMPONENT @40200
 LABEL ~D2-IWDEE-NYMPHFIX3~
-INCLUDE ~%MOD_FOLDER%/install/nymphfix3.tph~
+OUTER_SET nymphfix = 3
+INCLUDE ~%install%/nymphfix.tph~
 
 ////////////////////////////////////////////////////////////
 
-//Should shapeshift movement bonuses bypass Free Action?
+//Shapeshift movement bonuses bypass Free Action
 
-BEGIN @40301    // Movement bonuses bypass Free Action
+BEGIN @40301    // Bypass Free Action
 REQUIRE_PREDICATE (GAME_IS ~iwdee~) ~Game not supported~
 SUBCOMPONENT @40300
 LABEL ~D2-IWDEE-MOVEBONUS1~
-INCLUDE ~%MOD_FOLDER%/install/movebonus1.tph~
+OUTER_SET movebonus = 1
+INCLUDE ~%install%/plymovebonus.tph~
 
-BEGIN @40302    // Movement bonuses are blocked by Free Action
+BEGIN @40302    // Blocked by Free Action
 SUBCOMPONENT @40300
 LABEL ~D2-IWDEE-MOVEBONUS0~
-INCLUDE ~%MOD_FOLDER%/install/movebonus0.tph~
+OUTER_SET movebonus = 0
+INCLUDE ~%install%/plymovebonus.tph~
 
 ////////////////////////////////////////////////////////////
 
@@ -73,12 +90,14 @@ BEGIN @40401    // for Druids and Polymorph Self
 REQUIRE_PREDICATE (GAME_IS ~iwdee~) ~Game not supported~
 SUBCOMPONENT @40400
 LABEL ~D2-IWDEE-FASTERDRUIDS1~
-INCLUDE ~%MOD_FOLDER%/install/fasterdruids1.tph~
+OUTER_SET fasterdruids = 1
+INCLUDE ~%install%/fasterdruids.tph~
 
 BEGIN @40402    // for Druids only
 SUBCOMPONENT @40400
 LABEL ~D2-IWDEE-FASTERDRUIDS0~
-INCLUDE ~%MOD_FOLDER%/install/fasterdruids0.tph~
+OUTER_SET fasterdruids = 0
+INCLUDE ~%install%/fasterdruids.tph~
 
 ////////////////////////////////////////////////////////////
 
@@ -92,7 +111,7 @@ REQUIRE_PREDICATE (!(MOD_IS_INSTALLED ~d2-script.tp2~ (ID_OF_LABEL ~d2-script.tp
                    !(MOD_IS_INSTALLED ~d2-script.tp2~ (ID_OF_LABEL ~d2-script.tp2~ ~D2-TWEAKS-CRIPPSTR30~)) AND
                    !(MOD_IS_INSTALLED ~d2-script.tp2~ (ID_OF_LABEL ~d2-script.tp2~ ~D2-TWEAKS-CRIPPSTR16~))) @50
 LABEL ~D2-IWDEE-CRIPPSTR16~
-INCLUDE ~%MOD_FOLDER%/install/crippstr16.tph~
+INCLUDE ~%install%/crippstr16.tph~
 
 ////////////////////////////////////////////////////////////
 
@@ -101,7 +120,8 @@ INCLUDE ~%MOD_FOLDER%/install/crippstr16.tph~
 BEGIN @40600
 REQUIRE_PREDICATE (GAME_IS ~iwdee~) ~Game not supported~
 LABEL ~D2-IWDEE-SHORTBOWFIX~
-INCLUDE ~%MOD_FOLDER%/install/shortbowfix.tph~
+OUTER_SET patch_items = 0
+INCLUDE ~%install%/iwdshortbowfix.tph~
 
 ////////////////////////////////////////////////////////////
 
@@ -110,7 +130,7 @@ INCLUDE ~%MOD_FOLDER%/install/shortbowfix.tph~
 BEGIN @40700
 REQUIRE_PREDICATE (GAME_IS ~iwdee~) ~Game not supported~
 LABEL ~D2-IWDEE-IDSOBJECTFIX~
-INCLUDE ~%MOD_FOLDER%/install/idsobjectfix.tph~
+INCLUDE ~%install%/idsobjectfix.tph~
 
 ////////////////////////////////////////////////////////////
 
@@ -119,7 +139,7 @@ INCLUDE ~%MOD_FOLDER%/install/idsobjectfix.tph~
 BEGIN @40800
 REQUIRE_PREDICATE (GAME_IS ~iwdee~) ~Game not supported~
 LABEL ~D2-IWDEE-RANDOMWALK~
-INCLUDE ~%MOD_FOLDER%/install/randomwalk.tph~
+INCLUDE ~%install%/randomwalk.tph~
 
 ////////////////////////////////////////////////////////////
 

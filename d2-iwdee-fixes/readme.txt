@@ -1,19 +1,14 @@
 Polymorph (and other) fixes for IWD:EE
+
 GitHub: https://github.com/D2-mods/Polymorph-fixes-for-IWDEE 
+Download: https://github.com/D2-mods/Polymorph-fixes-for-IWDEE/releases
 Installs on: IWD:EE (tested on v2.5 and v2.6)
 Languages: English, Russian (yota13)
 
 
-==================================================
-WHAT THIS MOD DOES
-==================================================
 This is a small fix/tweak mod for IWD:EE, mainly dealing with polymorph-related things. The other components are fixes or tweaks for random stuff I noticed.
 
-
-==================================================
-INSTALL INFO
-==================================================
-Extract to game folder and run the setup to install or uninstall. I'm not familiar with Mac/Linux, but installing should be the same as other mods (mod packages are cross-platform).
+--
 
 Components:
 1. Polymorph fixes for IWD:EE
@@ -27,46 +22,41 @@ Components:
 
 Additional info:
 - All components can be installed independently and in any order.
-- Component 1 assumes you are using vanilla Shapechange forms. Install before mods that change creature stats (ex. Improved HoF)
-- Components 3-6 will not conflict with similar components in the Better IWD Pregen mod.
+- Component 1 assumes you are using vanilla Shapechange forms. Install before mods that change creature stats (ex. Improved HoF).
+- This mod shares some components with the Better IWD Pregen mod. If similar components are installed, whichever is installed last will be used (no issues or duplicated effects).
 
+--
 
-==================================================
 Polymorph fixes (component 1)
-==================================================
+
 NOTE: Skipped if EE Fixpack is installed.
 
 Polymorph Self
-- Removed permanent Haste from Winter Wolf, Boring Beetle, and Polar Bear
+- Removed permanent Haste from Winter Wolf, Boring Beetle, and Polar Bear.
 
 Shapechange
-- Giant Troll Strength changed from 18 to 18/00 to match description
-- Water Elemental weapon damage changed from 1d8 to 4d8 (same as Druid form)
+- Giant Troll Strength changed from 18 to 18/00 to match description.
+- Water Elemental weapon damage changed from 1d8 to 4d8 (same as Druid form).
+- Text edits: Consistent layouts and accurate stats.
 
-Text edits (Shapechange):
-- Consistent layouts and accurate stats
+Psionic Blast (mind flayer ability)
+- Added missing description (for IWDEE v2.5).
+- Stun duration changed to 5 rounds to match description.
+- Can be used at will, while in mind flayer form.
+- The rest of the effects are based on the v2.6 version.
 
-Psionic Blast
-- Added missing description in v2.5 (when right-clicking the icon)
-- Uses the v2.6 version as a base, with a few changes:
-	1. Stun duration changed to 5 rounds (from 10) to match description
-	2. Ability regenerates when used
-	3. Added back the orb animation over a stunned creature
+--
 
-
-==================================================
 Minor AI tweak (enemies and invisible PCs)
-==================================================
+
 Some enemy groups in the unmodded game will walk to and surround Player1 (first character created) if the entire party is invisible or offscreen. This prevents Player1 from moving.
 
 This tweak changes it so that these enemies will instead walk or stand around randomly. For certain battles, enemies will still walk towards the party, but they won't surround Player1 anymore.
 
 This will only patch official scripts included with the game.
 
+--
 
-==================================================
-CREDITS
-==================================================
 Modder: Dan_P
 
 Russian translation: yota13
@@ -79,10 +69,15 @@ Tools and Resources used:
 - Infinity Auto Packager (https://github.com/InfinityTools/InfinityAutoPackager)
 - IESDP (https://gibberlings3.github.io/iesdp/main.htm)
 
+--
 
-==================================================
-VERSION HISTORY
-==================================================
+Updates:
+
+v2.4
+- updated various install files.
+- Psionic Blast: Spinny orb visual now only lasts a couple seconds, instead of the full stun duration.
+- Polymorph component now also patches Free Action spell/rings and Chaotic Commands to make sure they block all stun-related strings (they don't in the unmodded game).
+
 v2.3
 - Object.ids patch: This will no longer edit typos. This is in case other mods use the typo versions. Identifiers with corrected spelling will now be added to the bottom of the file instead.
 

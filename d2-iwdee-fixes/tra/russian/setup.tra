@@ -8,9 +8,9 @@ Text for weidu installer.
 	@40201 = ~Add nymph Confusion spell (as dummy spell)~
 	@40202 = ~Remove check for non-existing nymph Confusion~
 	@40203 = ~Cast the memorized priest Confusion instead~
-@40300 = ~Should shapeshift movement bonuses bypass Free Action?~
-	@40301 = ~Movement bonuses bypass Free Action~
-	@40302 = ~Movement bonuses are blocked by Free Action~
+@40300 = ~Shapeshift movement bonuses bypass Free Action~
+	@40301 = ~Bypass Free Action~
+	@40302 = ~Blocked by Free Action~
 @40400 = ~Increase movement speed of Winter Wolf and Polar Bear forms~
 	@40401 = ~for Druids and Polymorph Self~
 	@40402 = ~for Druids only~
@@ -22,4 +22,9 @@ Text for weidu installer.
 
 //WeiDU messages
 @50 = ~Component not required.~
+@51 = ~additional patching... (fix string-blocking issues)~
+@52 = ~patching %spellitem%...~
 
+
+//
+//
