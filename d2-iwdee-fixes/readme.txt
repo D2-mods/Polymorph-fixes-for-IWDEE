@@ -13,7 +13,7 @@ This is a small fix/tweak mod for IWD:EE, mainly dealing with polymorph-related 
 Components:
 1. Polymorph fixes for IWD:EE
 2. Patch for nymph.BCS (fixes crash with EEex)
-3. Should shapeshift movement bonuses bypass Free Action?
+3. Shapeshift movement bonuses bypass Free Action
 4. Increase movement speed of Winter Wolf and Polar Bear forms
 5. Uncap Crippling Strike (capped at -7 in v2.5 and v2.6.6)
 6. Patch shortbows to use shortbow visuals (as in classic IWD)
@@ -66,12 +66,21 @@ Tools and Resources used:
 - NearInfinity (https://github.com/Argent77/NearInfinity)
 - Notepad++ (https://notepad-plus-plus.org/)
 - Git Bash (https://git-scm.com/downloads)
-- Infinity Auto Packager (https://github.com/InfinityTools/InfinityAutoPackager)
+- WeiDU Mod Packager (https://github.com/InfinityTools/WeiduModPackager)
 - IESDP (https://gibberlings3.github.io/iesdp/main.htm)
+- WeiDU readme (https://weidu.org/~thebigg/README-WeiDU.html)
+
+Used for older releases (replaced by WeiDU Mod Packager):
+- Infinity Auto Packager (https://github.com/InfinityTools/InfinityAutoPackager)
+- 7-Zip (https://www.7-zip.org/)
 
 --
 
 Updates:
+
+v2.5
+- now fixes #BONECIR.SPL if not already fixed (any component).
+- 
 
 v2.4
 - updated various install files.

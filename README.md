@@ -10,7 +10,7 @@ This is a mod for Icewind Dale: Enhanced Edition. Tested with IWDEE v2.5 and v2.
 ### Components:
 1. Polymorph fixes for IWD:EE
 2. Patch for nymph.BCS (fixes crash with EEex)
-3. Should shapeshift movement bonuses bypass Free Action?
+3. Shapeshift movement bonuses bypass Free Action
 4. Increase movement speed of Winter Wolf and Polar Bear forms
 5. Uncap Crippling Strike (capped at -7 in v2.5 and v2.6.6)
 6. Patch shortbows to use shortbow visuals (as in classic IWD)

@@ -1,0 +1,14 @@
+//misc stuff
+//
+
+
+//fix #BONECIR.SPL (wrong signature)
+ACTION_IF (FILE_EXISTS_IN_GAME ~#BONECIR.SPL~) BEGIN
+  COPY_EXISTING ~#BONECIR.SPL~  ~override~
+    WRITE_ASCII 0x0 ~SPL ~ #4
+  BUT_ONLY
+END
+
+
+/*
+*/
