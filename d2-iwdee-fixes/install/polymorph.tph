@@ -5,35 +5,29 @@ Polymorph fixes for IWD:EE
 
 //prep
 ACTION_IF !(FILE_EXISTS_IN_GAME ~#EFF_M15.WAV~) BEGIN
-  COPY ~%files%/#EFF_M15.WAV~ ~override~
+  COPY ~%files%/#EFF_M15.WAV~  ~override~
 END
 
 
 //
 //patches for Polymorph Self
-COPY_EXISTING ~CDPOLYBB.ITM~ ~override~
-  LPF DELETE_EFFECT INT_VAR match_opcode=16 END
-BUT_ONLY
-
-COPY_EXISTING ~CDPOLYPB.ITM~ ~override~
-  LPF DELETE_EFFECT INT_VAR match_opcode=16 END
-BUT_ONLY
-
-COPY_EXISTING ~CDPOLYWW.ITM~ ~override~
-  LPF DELETE_EFFECT INT_VAR match_opcode=16 END
+COPY_EXISTING ~CDPOLYBB.ITM~  ~override~
+              ~CDPOLYPB.ITM~  ~override~
+              ~CDPOLYWW.ITM~  ~override~
+  LPF DELETE_EFFECT INT_VAR match_opcode=16 END    // remove permanent haste
 BUT_ONLY
 
 
 //
 //patches for Shapechange
 
-//water elemental damage
-COPY_EXISTING ~CDSHWELE.ITM~ ~override~
+//water elemental damage (4d8)
+COPY_EXISTING ~CDSHWELE.ITM~  ~override~
   LPF ALTER_ITEM_HEADER INT_VAR header_type=1 dicenumber=4 END
 BUT_ONLY
 
-//giant troll STR
-COPY_EXISTING ~SHTROLL.CRE~ ~override~
+//giant troll STR (18/00)
+COPY_EXISTING ~SHTROLL.CRE~  ~override~
   PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
     WRITE_BYTE 0x238 18
     WRITE_BYTE 0x239 100
@@ -42,7 +36,7 @@ BUT_ONLY
 
 
 //patch Psionic Blast
-COPY_EXISTING ~SPIN974.SPL~ ~override~
+COPY_EXISTING ~SPIN974.SPL~  ~override~
 
   // prep
   LPF ALTER_SPELL_HEADER INT_VAR projectile=414 END    // default projectile for EE v2.6 (area cone)
@@ -69,46 +63,37 @@ COPY_EXISTING ~SPIN974.SPL~ ~override~
 BUT_ONLY
 
 
-//text edits
-COPY_EXISTING ~SPIN198.SPL~ ~override~
-  SAY NAME1 @100
-  SAY UNIDENTIFIED_DESC @200
-  
-COPY_EXISTING ~SPIN157.SPL~ ~override~
-  SAY NAME1 @101
-  SAY UNIDENTIFIED_DESC @201
-  
-COPY_EXISTING ~SPIN156.SPL~ ~override~
-  SAY NAME1 @102
-  SAY UNIDENTIFIED_DESC @202
-  
-COPY_EXISTING ~SPIN154.SPL~ ~override~
-  SAY NAME1 @103
-  SAY UNIDENTIFIED_DESC @203
-  
-COPY_EXISTING ~SPIN153.SPL~ ~override~
-  SAY NAME1 @104
-  SAY UNIDENTIFIED_DESC @204
-  
-COPY_EXISTING ~SPIN152.SPL~ ~override~
-  SAY NAME1 @105
-  SAY UNIDENTIFIED_DESC @205
-
-COPY_EXISTING ~SPIN974.SPL~ ~override~
-  SAY NAME1 @106
-  SAY UNIDENTIFIED_DESC @206
-  
-COPY_EXISTING ~SPIN155.SPL~ ~override~
-  SAY NAME1 @107
-  SAY UNIDENTIFIED_DESC @207
-  
-COPY_EXISTING ~SPWI497.SPL~ ~override~
-  SAY NAME1 @120
-  SAY UNIDENTIFIED_DESC @220
-  
-COPY_EXISTING ~SPWI498.SPL~ ~override~
-  SAY NAME1 @121
-  SAY UNIDENTIFIED_DESC @221
+//text edits (polymorphs)
+COPY_EXISTING ~SPIN198.SPL~  ~override~
+  SAY NAME1 @100 SAY UNIDENTIFIED_DESC @200    // water elemental
+BUT_ONLY
+COPY_EXISTING ~SPIN157.SPL~  ~override~
+  SAY NAME1 @101 SAY UNIDENTIFIED_DESC @201    // earth elemental
+BUT_ONLY
+COPY_EXISTING ~SPIN156.SPL~  ~override~
+  SAY NAME1 @102 SAY UNIDENTIFIED_DESC @202    // fire elemental
+BUT_ONLY
+COPY_EXISTING ~SPIN154.SPL~  ~override~
+  SAY NAME1 @103 SAY UNIDENTIFIED_DESC @203    // giant troll
+BUT_ONLY
+COPY_EXISTING ~SPIN153.SPL~  ~override~
+  SAY NAME1 @104 SAY UNIDENTIFIED_DESC @204    // iron golem
+BUT_ONLY
+COPY_EXISTING ~SPIN152.SPL~  ~override~
+  SAY NAME1 @105 SAY UNIDENTIFIED_DESC @205    // mind flayer
+BUT_ONLY
+COPY_EXISTING ~SPIN974.SPL~  ~override~
+  SAY NAME1 @106 SAY UNIDENTIFIED_DESC @206    // psionic blast
+BUT_ONLY
+COPY_EXISTING ~SPIN155.SPL~  ~override~
+  SAY NAME1 @107 SAY UNIDENTIFIED_DESC @207    // greater wolfwere
+BUT_ONLY
+COPY_EXISTING ~SPWI497.SPL~  ~override~
+  SAY NAME1 @120 SAY UNIDENTIFIED_DESC @220    // brown bear
+BUT_ONLY
+COPY_EXISTING ~SPWI498.SPL~  ~override~
+  SAY NAME1 @121 SAY UNIDENTIFIED_DESC @221    // black bear
+BUT_ONLY
 
 
 //

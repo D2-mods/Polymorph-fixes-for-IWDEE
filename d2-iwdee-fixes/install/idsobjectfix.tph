@@ -1,47 +1,56 @@
-//Add lines to Object.ids
-
-//Check some stuff
-COPY_EXISTING - ~object.ids~  ~~
-  COUNT_REGEXP_INSTANCES ~EighthNearestEnemyOfType~    check1
-  COUNT_REGEXP_INSTANCES ~EighthNearestMyGroupOfType~  check2
-  COUNT_REGEXP_INSTANCES ~TenthFarthestEnemyOf~        check3
-
-
-//Add lines with correct spelling (only if missing)
-ACTION_IF (check1 = 0) BEGIN
-  APPEND ~object.ids~  ~57 EighthNearestEnemyOfType~
-END
-
-ACTION_IF (check2 = 0) BEGIN
-  APPEND ~object.ids~  ~67 EighthNearestMyGroupOfType~
-END
-
-
-//Add lines if missing (i.e. for IWDEE v2.6)
-ACTION_IF (check3 = 0) BEGIN
-  APPEND ~object.ids~ ~94 LastKilled~
-  APPEND ~object.ids~ ~95 NearestAllyOf~
-  APPEND ~object.ids~ ~96 SecondNearestAllyOf~
-  APPEND ~object.ids~ ~97 ThirdNearestAllyOf~
-  APPEND ~object.ids~ ~98 FourthNearestAllyOf~
-  APPEND ~object.ids~ ~99 FifthNearestAllyOf~
-  APPEND ~object.ids~ ~100 SixthNearestAllyOf~
-  APPEND ~object.ids~ ~101 SeventhNearestAllyOf~
-  APPEND ~object.ids~ ~102 EighthNearestAllyOf~
-  APPEND ~object.ids~ ~103 NinthNearestAllyOf~
-  APPEND ~object.ids~ ~104 TenthNearestAllyOf~
-  APPEND ~object.ids~ ~105 FarthestEnemyOf~
-  APPEND ~object.ids~ ~106 SecondFarthestEnemyOf~
-  APPEND ~object.ids~ ~107 ThirdFarthestEnemyOf~
-  APPEND ~object.ids~ ~108 FourthFarthestEnemyOf~
-  APPEND ~object.ids~ ~109 FifthFarthestEnemyOf~
-  APPEND ~object.ids~ ~110 SixthFarthestEnemyOf~
-  APPEND ~object.ids~ ~111 SeventhFarthestEnemyOf~
-  APPEND ~object.ids~ ~112 EighthFarthestEnemyOf~
-  APPEND ~object.ids~ ~113 NinthFarthestEnemyOf~
-  APPEND ~object.ids~ ~114 TenthFarthestEnemyOf~
-END
-
-
 /*
+Add missing lines to Object.ids
+
 */
+
+
+//add missing stuff from object.ids
+ACTION_DEFINE_ASSOCIATIVE_ARRAY iwd_objectids_check BEGIN
+// fix typos
+  57  => EighthNearestEnemyOfType      // added to bottom
+  67  => EighthNearestMyGroupOfType    // typo lines not deleted in case another mod uses them
+// missing entries
+  94  => LastKilled
+  95  => NearestAllyOf
+  96  => SecondNearestAllyOf
+  97  => ThirdNearestAllyOf
+  98  => FourthNearestAllyOf
+  99  => FifthNearestAllyOf
+  100 => SixthNearestAllyOf
+  101 => SeventhNearestAllyOf
+  102 => EighthNearestAllyOf
+  103 => NinthNearestAllyOf
+  104 => TenthNearestAllyOf
+  105 => FarthestEnemyOf
+  106 => SecondFarthestEnemyOf
+  107 => ThirdFarthestEnemyOf
+  108 => FourthFarthestEnemyOf
+  109 => FifthFarthestEnemyOf
+  110 => SixthFarthestEnemyOf
+  111 => SeventhFarthestEnemyOf
+  112 => EighthFarthestEnemyOf
+  113 => NinthFarthestEnemyOf
+  114 => TenthFarthestEnemyOf
+END
+
+//
+OUTER_TEXT_SPRINT stuff ~~
+OUTER_TEXT_SPRINT space ~ ~
+COPY_EXISTING - ~object.ids~  ~~
+  PHP_EACH iwd_objectids_check AS num => object BEGIN
+    PATCH_IF !(RESOURCE_CONTAINS ~%SOURCE_FILE%~  ~%object%~) BEGIN
+
+      PATCH_IF (~%stuff%~ STR_EQ ~~) BEGIN
+        TEXT_SPRINT stuff ~%num%%space%%object%~
+      END ELSE BEGIN
+        TEXT_SPRINT stuff ~%stuff%%WNL%%num%%space%%object%~
+      END
+
+    END
+  END
+
+APPEND ~object.ids~  ~%stuff%~
+
+
+//
+//

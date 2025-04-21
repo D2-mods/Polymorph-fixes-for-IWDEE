@@ -79,8 +79,8 @@ Used for older releases (replaced by WeiDU Mod Packager):
 Updates:
 
 v2.5
-- now fixes #BONECIR.SPL if not already fixed (any component).
-- 
+- now fixes #BONECIR.SPL if not already fixed. This is done from any component.
+- improved Object.ids patch. Now checks missing entries individually and uses a better method for patching. NOTE: This is safe to install after any other mod that adds missing entries to object.ids (ex. EE Fixpack). Object identifiers will not be added if already in the file.
 
 v2.4
 - updated various install files.
