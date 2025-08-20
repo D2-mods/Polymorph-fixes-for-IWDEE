@@ -11,19 +11,20 @@ Text for weidu installer.
 @40300 = ~Shapeshift movement bonuses bypass Free Action~
 	@40301 = ~Bypass Free Action~
 	@40302 = ~Blocked by Free Action~
-@40400 = ~Increase movement speed of Winter Wolf and Polar Bear forms~
+@40400 = ~Increase movement speed of IWD shapeshifts (EE and classic)~
 	@40401 = ~for Druids and Polymorph Self~
 	@40402 = ~for Druids only~
 @40500 = ~Uncap Crippling Strike (capped at -7 in v2.5 and v2.6.6)~
-@40600 = ~Patch shortbows to use shortbow visuals (as in classic IWD)~
+@40600 = ~Patch shortbows to use shortbow visuals (as with 1pp/BGEE)~
 @40700 = ~Object.ids - Add identifiers if missing (for scripting)~
 @40800 = ~Minor AI tweak (enemies and invisible PCs)~
+@40900 = ~Set Join_Posse variable in Kuldahar, fixes a possible bug with Hjollder's dialogue (EE and classic)~
 
 
 //WeiDU messages
-@50 = ~Component not required.~
-@51 = ~additional patching... (fix string-blocking issues)~
-@52 = ~patching %spellitem%...~
+@50 = ~Skipped to avoid mod conflicts~
+@51 = ~additional patching ... (fix string-blocking issues)~
+@52 = ~patching %spellitem% ...~
 
 
 //

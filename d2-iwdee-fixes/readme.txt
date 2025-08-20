@@ -6,7 +6,9 @@ Installs on: IWD:EE (tested on v2.5 and v2.6)
 Languages: English, Russian (yota13)
 
 
-This is a small fix/tweak mod for IWD:EE, mainly dealing with polymorph-related things. The other components are fixes or tweaks for random stuff I noticed.
+This is a small fix/tweak mod for Icewind Dale: Enhanced Edition. It was originally made to deal with polymorph-related things. The other components are fixes or tweaks for random stuff I noticed.
+
+This mod is compatible with EE fixpack. Install this mod after EE fixpack. Some components will be skipped automatically.
 
 --
 
@@ -14,16 +16,17 @@ Components:
 1. Polymorph fixes for IWD:EE
 2. Patch for nymph.BCS (fixes crash with EEex)
 3. Shapeshift movement bonuses bypass Free Action
-4. Increase movement speed of Winter Wolf and Polar Bear forms
+4. Increase movement speed of IWD shapeshifts (EE and classic)
 5. Uncap Crippling Strike (capped at -7 in v2.5 and v2.6.6)
-6. Patch shortbows to use shortbow visuals (as in classic IWD)
+6. Patch shortbows to use shortbow visuals (as with 1pp/BGEE)
 7. Object.ids - Add identifiers if missing (for scripting)
 8. Minor AI tweak (enemies and invisible PCs)
+9. Set Join_Posse variable in Kuldahar if not already set (i.e. if you warped there)
 
 Additional info:
 - All components can be installed independently and in any order.
-- Component 1 assumes you are using vanilla Shapechange forms. Install before mods that change creature stats (ex. Improved HoF).
-- This mod shares some components with the Better IWD Pregen mod. If similar components are installed, whichever is installed last will be used (no issues or duplicated effects).
+- Polymorph fixes should be installed before any mods that tweak spells or creatures.
+- This mod shares some components with my tweak mod, Better IWD Pregen. If similar components are installed, whichever is installed last will be used (no issues or duplicated effects).
 
 --
 
@@ -77,6 +80,11 @@ Used for older releases (replaced by WeiDU Mod Packager):
 --
 
 Updates:
+
+v2.6
+- Add component: Set Join_Posse variable in Kuldahar if it wasn't already set (i.e. you warped to Kuldahar). This fixes a possible bug with Hjollder's dialogue.
+- Updated Shapeshift movement tweak to also give a small boost to boring beetle and elemental forms. They will move the same speed or slower than natural form.
+- IWD1 (classic) note: Because the Hjollder dialogue issue is present on original IWD1 as well, I made it installable on both EE and classic.
 
 v2.5
 - now fixes #BONECIR.SPL if not already fixed. This is done from any component.

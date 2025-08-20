@@ -1,6 +1,6 @@
 BACKUP ~weidu_external/backup/d2-iwdee-fixes~
 AUTHOR ~Dan_P~
-VERSION ~2.5~
+VERSION ~2.6~
 AUTO_EVAL_STRINGS
 
 ALWAYS
@@ -84,20 +84,22 @@ INCLUDE ~%install%/plymovebonus.tph~
 
 ////////////////////////////////////////////////////////////
 
-//Increase movement speed of Winter Wolf and Polar Bear forms
+//Increase movement speed of IWD shapeshifts (EE and classic)
 
 BEGIN @40401    // for Druids and Polymorph Self
-REQUIRE_PREDICATE (GAME_IS ~iwdee~) ~Game not supported~
+REQUIRE_PREDICATE (GAME_IS ~iwdee iwd how totlm~) ~Game not supported~
 SUBCOMPONENT @40400
 LABEL ~D2-IWDEE-FASTERDRUIDS1~
 OUTER_SET fasterdruids = 1
-INCLUDE ~%install%/fasterdruids.tph~
+INCLUDE ~%install%/fasterdruids2.tph~
+INCLUDE ~%install%/id1fasterdruids.tph~
 
 BEGIN @40402    // for Druids only
 SUBCOMPONENT @40400
 LABEL ~D2-IWDEE-FASTERDRUIDS0~
 OUTER_SET fasterdruids = 0
-INCLUDE ~%install%/fasterdruids.tph~
+INCLUDE ~%install%/fasterdruids2.tph~
+INCLUDE ~%install%/id1fasterdruids.tph~
 
 ////////////////////////////////////////////////////////////
 
@@ -140,6 +142,15 @@ BEGIN @40800
 REQUIRE_PREDICATE (GAME_IS ~iwdee~) ~Game not supported~
 LABEL ~D2-IWDEE-RANDOMWALK~
 INCLUDE ~%install%/randomwalk.tph~
+
+////////////////////////////////////////////////////////////
+
+//Set Join_Posse variable in Kuldahar, fixes a possible bug with Hjollder's dialogue (EE and classic)
+
+BEGIN @40900
+REQUIRE_PREDICATE (GAME_IS ~iwdee iwd how totlm~) ~Game not supported~
+LABEL ~D2-IWDEE-HJOLLDERVAR~
+INCLUDE ~%install%/hjolldervar.tph~
 
 ////////////////////////////////////////////////////////////
 
